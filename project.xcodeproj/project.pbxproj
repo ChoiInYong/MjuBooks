@@ -11,8 +11,16 @@
 		4F9C1FE41B0A1C6600E6EB3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C1FE31B0A1C6600E6EB3D /* AppDelegate.m */; };
 		4F9C1FE61B0A1C6600E6EB3D /* project-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 4F9C1FE51B0A1C6600E6EB3D /* project-Prefix.pch */; };
 		4F9C1FE81B0A1C6600E6EB3D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F9C1FE71B0A1C6600E6EB3D /* Images.xcassets */; };
-		4F9C1FEB1B0A1C6600E6EB3D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9C1FE91B0A1C6600E6EB3D /* LaunchScreen.xib */; };
 		4F9C1FF71B0A1C6600E6EB3D /* projectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C1FF61B0A1C6600E6EB3D /* projectTests.m */; };
+		4F9C20031B0A1CB800E6EB3D /* MJBCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C20011B0A1CB800E6EB3D /* MJBCoverViewController.m */; };
+		4F9C20041B0A1CB800E6EB3D /* MJBCoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9C20021B0A1CB800E6EB3D /* MJBCoverViewController.xib */; };
+		4FB15B831B0AE075003692DD /* facebook_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FB15B821B0AE075003692DD /* facebook_icon.png */; };
+		4FB15B911B0B749D003692DD /* MJBPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB15B8F1B0B749D003692DD /* MJBPhoneViewController.m */; };
+		4FB15B921B0B749D003692DD /* MJBPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB15B901B0B749D003692DD /* MJBPhoneViewController.xib */; };
+		4FB15B941B0B9826003692DD /* search-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FB15B931B0B9826003692DD /* search-25.png */; };
+		4FB15B9A1B0B9E26003692DD /* MJBMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB15B991B0B9E26003692DD /* MJBMainViewController.xib */; };
+		4FB15B9C1B0BA265003692DD /* back-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FB15B9B1B0BA264003692DD /* back-25.png */; };
+		4FFD42791B0DA57C00FB18C3 /* MJBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FFD42781B0DA57C00FB18C3 /* MJBMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +41,21 @@
 		4F9C1FE31B0A1C6600E6EB3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4F9C1FE51B0A1C6600E6EB3D /* project-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "project-Prefix.pch"; sourceTree = "<group>"; };
 		4F9C1FE71B0A1C6600E6EB3D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4F9C1FEA1B0A1C6600E6EB3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4F9C1FF01B0A1C6600E6EB3D /* projectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = projectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9C1FF51B0A1C6600E6EB3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F9C1FF61B0A1C6600E6EB3D /* projectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = projectTests.m; sourceTree = "<group>"; };
+		4F9C20001B0A1CB800E6EB3D /* MJBCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBCoverViewController.h; sourceTree = "<group>"; };
+		4F9C20011B0A1CB800E6EB3D /* MJBCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBCoverViewController.m; sourceTree = "<group>"; };
+		4F9C20021B0A1CB800E6EB3D /* MJBCoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBCoverViewController.xib; sourceTree = "<group>"; };
+		4FB15B821B0AE075003692DD /* facebook_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_icon.png; sourceTree = "<group>"; };
+		4FB15B8E1B0B749D003692DD /* MJBPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBPhoneViewController.h; sourceTree = "<group>"; };
+		4FB15B8F1B0B749D003692DD /* MJBPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBPhoneViewController.m; sourceTree = "<group>"; };
+		4FB15B901B0B749D003692DD /* MJBPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBPhoneViewController.xib; sourceTree = "<group>"; };
+		4FB15B931B0B9826003692DD /* search-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-25.png"; sourceTree = "<group>"; };
+		4FB15B991B0B9E26003692DD /* MJBMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBMainViewController.xib; sourceTree = "<group>"; };
+		4FB15B9B1B0BA264003692DD /* back-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-25.png"; sourceTree = "<group>"; };
+		4FFD42771B0DA57C00FB18C3 /* MJBMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBMainViewController.h; sourceTree = "<group>"; };
+		4FFD42781B0DA57C00FB18C3 /* MJBMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +79,9 @@
 		4F9C1FD21B0A1C6600E6EB3D = {
 			isa = PBXGroup;
 			children = (
+				4FB15B821B0AE075003692DD /* facebook_icon.png */,
+				4FB15B931B0B9826003692DD /* search-25.png */,
+				4FB15B9B1B0BA264003692DD /* back-25.png */,
 				4F9C1FDD1B0A1C6600E6EB3D /* project */,
 				4F9C1FF31B0A1C6600E6EB3D /* projectTests */,
 				4F9C1FDC1B0A1C6600E6EB3D /* Products */,
@@ -80,9 +102,17 @@
 			children = (
 				4F9C1FE21B0A1C6600E6EB3D /* AppDelegate.h */,
 				4F9C1FE31B0A1C6600E6EB3D /* AppDelegate.m */,
+				4F9C20001B0A1CB800E6EB3D /* MJBCoverViewController.h */,
+				4F9C20011B0A1CB800E6EB3D /* MJBCoverViewController.m */,
+				4F9C20021B0A1CB800E6EB3D /* MJBCoverViewController.xib */,
+				4FFD42771B0DA57C00FB18C3 /* MJBMainViewController.h */,
+				4FFD42781B0DA57C00FB18C3 /* MJBMainViewController.m */,
+				4FB15B991B0B9E26003692DD /* MJBMainViewController.xib */,
+				4FB15B8E1B0B749D003692DD /* MJBPhoneViewController.h */,
+				4FB15B8F1B0B749D003692DD /* MJBPhoneViewController.m */,
+				4FB15B901B0B749D003692DD /* MJBPhoneViewController.xib */,
 				4F9C1FE51B0A1C6600E6EB3D /* project-Prefix.pch */,
 				4F9C1FE71B0A1C6600E6EB3D /* Images.xcassets */,
-				4F9C1FE91B0A1C6600E6EB3D /* LaunchScreen.xib */,
 				4F9C1FDE1B0A1C6600E6EB3D /* Supporting Files */,
 			);
 			path = project;
@@ -194,9 +224,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FB15B9A1B0B9E26003692DD /* MJBMainViewController.xib in Resources */,
+				4FB15B941B0B9826003692DD /* search-25.png in Resources */,
 				4F9C1FE61B0A1C6600E6EB3D /* project-Prefix.pch in Resources */,
-				4F9C1FEB1B0A1C6600E6EB3D /* LaunchScreen.xib in Resources */,
+				4FB15B9C1B0BA265003692DD /* back-25.png in Resources */,
 				4F9C1FE81B0A1C6600E6EB3D /* Images.xcassets in Resources */,
+				4FB15B921B0B749D003692DD /* MJBPhoneViewController.xib in Resources */,
+				4FB15B831B0AE075003692DD /* facebook_icon.png in Resources */,
+				4F9C20041B0A1CB800E6EB3D /* MJBCoverViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,8 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F9C20031B0A1CB800E6EB3D /* MJBCoverViewController.m in Sources */,
+				4FFD42791B0DA57C00FB18C3 /* MJBMainViewController.m in Sources */,
 				4F9C1FE41B0A1C6600E6EB3D /* AppDelegate.m in Sources */,
 				4F9C1FE11B0A1C6600E6EB3D /* main.m in Sources */,
+				4FB15B911B0B749D003692DD /* MJBPhoneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,17 +274,6 @@
 			targetProxy = 4F9C1FF11B0A1C6600E6EB3D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		4F9C1FE91B0A1C6600E6EB3D /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4F9C1FEA1B0A1C6600E6EB3D /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4F9C1FF81B0A1C6600E6EB3D /* Debug */ = {
@@ -338,6 +365,7 @@
 				INFOPLIST_FILE = project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -348,6 +376,7 @@
 				INFOPLIST_FILE = project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -404,6 +433,7 @@
 				4F9C1FFC1B0A1C6600E6EB3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F9C1FFD1B0A1C6600E6EB3D /* Build configuration list for PBXNativeTarget "projectTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +442,7 @@
 				4F9C1FFF1B0A1C6600E6EB3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

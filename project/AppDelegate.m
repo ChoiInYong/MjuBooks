@@ -13,10 +13,15 @@
 @end
 
 @implementation AppDelegate
-
+@synthesize cover;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    self.cover=[[MJBCoverViewController alloc]initWithNibName:nil bundle:nil];
+    [self.window setRootViewController:self.cover];
+    self.window.backgroundColor=[UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
