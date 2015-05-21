@@ -14,7 +14,7 @@
 @end
 
 @implementation MJBCoverViewController
-@synthesize mainView, navC, loginButton;//if you want to transit to ViewController, then make it!!
+@synthesize faceView, loginButton;//if you want to transit to ViewController, then make it!!
 
 
 
@@ -34,14 +34,11 @@
 }
 
 - (IBAction)login:(id)sender{
-    mainView=[[MJBMainViewController alloc]initWithNibName:nil
-                                                     bundle:nil];//alloc the main view
-    self.mainView.title=@"메인";
+    faceView=[[MJBFacebookViewController alloc]init];
+    [FBSDKLoginButton class];
+    [self.view addSubview:faceView.view];
     
-    self.navC=[[UINavigationController alloc]initWithRootViewController:self.mainView];
-    
-    [self presentModalViewController:self.navC animated:YES];//if click the login button, then the MJBMainViewController appear
-    
+ 
 }
 
 
