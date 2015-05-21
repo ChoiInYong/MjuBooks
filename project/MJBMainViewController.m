@@ -13,7 +13,7 @@
 @end
 
 @implementation MJBMainViewController
-@synthesize productTV;
+
 
 - (void)viewDidLoad {
     

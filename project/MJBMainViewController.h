@@ -10,7 +10,6 @@
 
 @interface MJBMainViewController : UIViewController
 
-@property (nonatomic, weak) IBOutlet UITableView *productTV;
 
 
 @end

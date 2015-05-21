@@ -14,16 +14,16 @@
 @end
 
 @implementation MJBFacebookViewController
-@synthesize loginButton, mainView, navC;
+
 - (void)viewDidLoad {
     
-    loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
-    [self.view addSubview:loginButton];
+    self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    [self.view addSubview:self.loginButton];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     if ([FBSDKAccessToken currentAccessToken]){
         // User is logged in, do work such as go to next view controller.
-        mainView=[[MJBMainViewController alloc]initWithNibName:nil bundle:nil];//alloc the main view
+        self.mainView=[[MJBMainViewController alloc]initWithNibName:nil bundle:nil];//alloc the main view
         self.mainView.title=@"메인";
     
         self.navC=[[UINavigationController alloc]initWithRootViewController:self.mainView];

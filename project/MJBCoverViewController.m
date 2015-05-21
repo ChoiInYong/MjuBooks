@@ -14,7 +14,6 @@
 @end
 
 @implementation MJBCoverViewController
-@synthesize faceView, loginButton;//if you want to transit to ViewController, then make it!!
 
 
 
@@ -22,10 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    loginButton.layer.borderWidth=.5f;
-    loginButton.layer.borderColor=[[UIColor blueColor]CGColor];
-    loginButton.layer.cornerRadius=5;
-    loginButton.clipsToBounds=YES;
+    self.loginButton.layer.borderWidth=.5f;
+    self.loginButton.layer.borderColor=[[UIColor blueColor]CGColor];
+    self.loginButton.layer.cornerRadius=5;
+    self.loginButton.clipsToBounds=YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,9 +33,9 @@
 }
 
 - (IBAction)login:(id)sender{
-    faceView=[[MJBFacebookViewController alloc]init];
+    self.faceView=[[MJBFacebookViewController alloc]init];
     [FBSDKLoginButton class];
-    [self.view addSubview:faceView.view];
+    [self.view addSubview:self.faceView.view];
     
  
 }
