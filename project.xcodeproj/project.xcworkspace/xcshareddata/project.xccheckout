@@ -14,7 +14,7 @@
 		<string>https://github.com/ChoiInYong/MjuBooks</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>project.xcodeproj</string>
+	<string>project.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>DDC59458F38F06806BAB7E61761A35EDED64D6BE</key>

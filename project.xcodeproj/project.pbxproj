@@ -95,7 +95,7 @@
 				4FB15B821B0AE075003692DD /* facebook_icon.png */,
 				4FB15B931B0B9826003692DD /* search-25.png */,
 				4FB15B9B1B0BA264003692DD /* back-25.png */,
-				4F9C1FDD1B0A1C6600E6EB3D /* project */,
+				4F9C1FDD1B0A1C6600E6EB3D /* 명지대 중고책방 */,
 				4F9C1FF31B0A1C6600E6EB3D /* projectTests */,
 				4F9C1FDC1B0A1C6600E6EB3D /* Products */,
 			);
@@ -110,7 +110,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4F9C1FDD1B0A1C6600E6EB3D /* project */ = {
+		4F9C1FDD1B0A1C6600E6EB3D /* 명지대 중고책방 */ = {
 			isa = PBXGroup;
 			children = (
 				4F9C1FE21B0A1C6600E6EB3D /* AppDelegate.h */,
@@ -131,6 +131,7 @@
 				4F9C1FE71B0A1C6600E6EB3D /* Images.xcassets */,
 				4F9C1FDE1B0A1C6600E6EB3D /* Supporting Files */,
 			);
+			name = "명지대 중고책방";
 			path = project;
 			sourceTree = "<group>";
 		};

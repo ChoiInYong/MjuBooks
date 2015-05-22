@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     
-    self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    self.loginButton.readPermissions = @[@"user_about_me", @"email",@"user_photo"];
     [self.view addSubview:self.loginButton];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
