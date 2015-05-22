@@ -14,7 +14,6 @@
 }
 
 @property (nonatomic, weak) IBOutlet UIButton *loginButton;
-
-@property (strong, nonatomic) MJBFacebookViewController *faceView;
+@property (strong, nonatomic)MJBFacebookViewController *faceView;
 - (IBAction)login:(id)sender;
 @end

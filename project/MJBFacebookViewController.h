@@ -14,8 +14,8 @@
 
 
 @interface MJBFacebookViewController : UIViewController
-
+@property (strong, nonatomic)MJBMainViewController *mainView;
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
-@property (nonatomic, strong) MJBMainViewController *mainView;
 @property (strong, nonatomic) UINavigationController *navC;
+@property BOOL isLoggedIn;
 @end

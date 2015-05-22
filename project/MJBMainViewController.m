@@ -23,13 +23,37 @@
        
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return 10;
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Formal";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(cell==nil){
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewStylePlain reuseIdentifier:CellIdentifier];
+    }
+    // Configure the cell...
+    cell.textLabel.text=[NSString stringWithFormat:@"Index row of this cell: %d",indexPath.row];
+    return cell;
+}
 
 
 
 
 - (void)back:(id)sender{
+//    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+//    [login logOut];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logOut];
+    
+  //  [self.navigationController popToRootViewControllerAnimated:YES];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
