@@ -11,7 +11,8 @@
 #import "MJBMainViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-
+#import <FacebookSDK/FacebookSDK.h>
+#import <FBSDKCoreKit/FBSDKTestUsersManager.h>
 
 @interface MJBFacebookViewController : UIViewController
 @property (strong, nonatomic)MJBMainViewController *mainView;

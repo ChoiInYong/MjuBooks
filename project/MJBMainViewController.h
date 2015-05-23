@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKCoreKit/FBSDKTestUsersManager.h>
 
 @interface MJBMainViewController : UIViewController
 
-
+@property (nonatomic, weak) NSString* email;
 @end

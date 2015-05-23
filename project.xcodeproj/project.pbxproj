@@ -14,6 +14,7 @@
 		4F9C1FF71B0A1C6600E6EB3D /* projectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C1FF61B0A1C6600E6EB3D /* projectTests.m */; };
 		4F9C20031B0A1CB800E6EB3D /* MJBCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C20011B0A1CB800E6EB3D /* MJBCoverViewController.m */; };
 		4F9C20041B0A1CB800E6EB3D /* MJBCoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9C20021B0A1CB800E6EB3D /* MJBCoverViewController.xib */; };
+		4FABB5ED1B10C6CE009EBC67 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FABB5EC1B10C6CE009EBC67 /* FacebookSDK.framework */; };
 		4FB15B831B0AE075003692DD /* facebook_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FB15B821B0AE075003692DD /* facebook_icon.png */; };
 		4FB15B911B0B749D003692DD /* MJBPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB15B8F1B0B749D003692DD /* MJBPhoneViewController.m */; };
 		4FB15B921B0B749D003692DD /* MJBPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB15B901B0B749D003692DD /* MJBPhoneViewController.xib */; };
@@ -51,6 +52,7 @@
 		4F9C20001B0A1CB800E6EB3D /* MJBCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBCoverViewController.h; sourceTree = "<group>"; };
 		4F9C20011B0A1CB800E6EB3D /* MJBCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBCoverViewController.m; sourceTree = "<group>"; };
 		4F9C20021B0A1CB800E6EB3D /* MJBCoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBCoverViewController.xib; sourceTree = "<group>"; };
+		4FABB5EC1B10C6CE009EBC67 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		4FB15B821B0AE075003692DD /* facebook_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_icon.png; sourceTree = "<group>"; };
 		4FB15B8E1B0B749D003692DD /* MJBPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBPhoneViewController.h; sourceTree = "<group>"; };
 		4FB15B8F1B0B749D003692DD /* MJBPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBPhoneViewController.m; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			files = (
 				4FFD6FDB1B0DD5A500FB18C3 /* FBSDKLoginKit.framework in Frameworks */,
 				4FFD6FD41B0DCFFE00FB18C3 /* FBSDKCoreKit.framework in Frameworks */,
+				4FABB5ED1B10C6CE009EBC67 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,8 +95,9 @@
 			children = (
 				4FFD6FDA1B0DD5A500FB18C3 /* FBSDKLoginKit.framework */,
 				4FFD6FD31B0DCFFE00FB18C3 /* FBSDKCoreKit.framework */,
-				4FB15B821B0AE075003692DD /* facebook_icon.png */,
+				4FABB5EC1B10C6CE009EBC67 /* FacebookSDK.framework */,
 				4FB15B931B0B9826003692DD /* search-25.png */,
+				4FB15B821B0AE075003692DD /* facebook_icon.png */,
 				4FB15B9B1B0BA264003692DD /* back-25.png */,
 				4F9C1FDD1B0A1C6600E6EB3D /* 명지대 중고책방 */,
 				4F9C1FF31B0A1C6600E6EB3D /* projectTests */,

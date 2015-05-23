@@ -35,6 +35,7 @@
 - (IBAction)login:(id)sender{
     self.faceView=[[MJBFacebookViewController alloc]init];
     [FBSDKLoginButton class];
+   // [FBLoginView class];
     [self.view addSubview:self.faceView.view];
     
  

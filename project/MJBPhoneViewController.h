@@ -11,4 +11,8 @@
 @interface MJBPhoneViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UIButton *signUpButton;
+@property (nonatomic, weak) IBOutlet UITextField *phonenumber;
+@property (nonatomic, weak) NSString *name;
+@property (nonatomic, weak) NSString *email;
+@property (nonatomic, weak) UIImage *photo;
 @end

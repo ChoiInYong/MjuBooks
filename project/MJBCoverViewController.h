@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MJBFacebookViewController.h"
-
+//#import <FacebookSDK/FacebookSDK.h>
 @interface MJBCoverViewController : UIViewController{
     
 }

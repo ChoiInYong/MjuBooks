@@ -7,7 +7,7 @@
 //
 
 #import "MJBFacebookViewController.h"
-
+//#import "MyTokenCachingStrategy.h"
 
 @interface MJBFacebookViewController ()
 
@@ -19,21 +19,24 @@
     
     self.loginButton.readPermissions = @[@"public_profile", @"email",@"user_friends"];
     [self.view addSubview:self.loginButton];
-    [super viewDidLoad];
+  //  [FBSDKAccessToken setCurrentAccessToken:nil];
+        [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
 }
 - (void)viewDidAppear:(BOOL)animated{
-    
-    if ([FBSDKAccessToken currentAccessToken]){
+    if ([FBSDKAccessToken currentAccessToken]!=nil){
+        
         // User is logged in, do work such as go to next view controller.
+    
+//    if ([FBSession openActiveSessionWithReadPermissions])
+//    {
         self.mainView=[[MJBMainViewController alloc]initWithNibName:nil bundle:nil];//alloc the main view
         self.mainView.title=@"메인";
-        
         self.navC=[[UINavigationController alloc]initWithRootViewController:self.mainView];
         
         [self presentModalViewController:self.navC animated:YES];//if click the login button, then the MJBMainViewController appear
-        
+  //      }
     }
     
 }
