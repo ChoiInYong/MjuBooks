@@ -17,27 +17,42 @@
 
 - (void)viewDidLoad {
     
-    self.loginButton.readPermissions = @[@"public_profile", @"email",@"user_friends"];
+    self.loginButton.readPermissions = @[@"public_profile", @"email"];
     [self.view addSubview:self.loginButton];
-  //  [FBSDKAccessToken setCurrentAccessToken:nil];
-        [super viewDidLoad];
+    [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
 }
 - (void)viewDidAppear:(BOOL)animated{
-    if ([FBSDKAccessToken currentAccessToken]!=nil){
+    
+    if ([FBSDKAccessToken currentAccessToken]){
         
         // User is logged in, do work such as go to next view controller.
-    
-//    if ([FBSession openActiveSessionWithReadPermissions])
-//    {
+       
+       /* if ([FBSDKAccessToken currentAccessToken]) {
+            [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+             startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                 if (!error) {
+                     NSString *pic=[result objectForKey:@"id"];
+                     NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", pic]];
+                     NSData *imageData = [NSData dataWithContentsOfURL:pictureURL];
+                     UIImage *fbImage = [UIImage imageWithData:imageData];
+                     [self.fbImageV setImage:fbImage];
+        
+                     self.info.text=[result objectForKey:@"email"];
+                 }
+             }];
+        }*/
+        
         self.mainView=[[MJBMainViewController alloc]initWithNibName:nil bundle:nil];//alloc the main view
         self.mainView.title=@"메인";
         self.navC=[[UINavigationController alloc]initWithRootViewController:self.mainView];
         
-        [self presentModalViewController:self.navC animated:YES];//if click the login button, then the MJBMainViewController appear
-  //      }
+        
+        [self.view.window.rootViewController presentViewController:self.navC animated:YES completion:nil];
+
     }
+    
     
 }
 
@@ -47,7 +62,7 @@
 }
 
 
-//- (void)l
+
 /*
 #pragma mark - Navigation
 

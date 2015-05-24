@@ -48,13 +48,15 @@
 //    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
 //    [login logOut];
 //    [self.navigationController popToRootViewControllerAnimated:YES];
-    [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
+       [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login logOut];
+   // [FBSDKAccessToken initialize];
     
   //  [self.navigationController popToRootViewControllerAnimated:YES];
 
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -18,5 +18,6 @@
 @property (strong, nonatomic)MJBMainViewController *mainView;
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
 @property (strong, nonatomic) UINavigationController *navC;
+@property (weak, nonatomic) IBOutlet UILabel *info;
 @property BOOL isLoggedIn;
 @end
