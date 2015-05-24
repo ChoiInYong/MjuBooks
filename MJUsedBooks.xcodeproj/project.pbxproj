@@ -8,11 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		7D8F07691B0F90580011EA45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F07681B0F90580011EA45 /* main.m */; };
-		7D8F076C1B0F90580011EA45 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F076B1B0F90580011EA45 /* AppDelegate.m */; };
+		7D8F076C1B0F90580011EA45 /* MJBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F076B1B0F90580011EA45 /* MJBAppDelegate.m */; };
 		7D8F076E1B0F90580011EA45 /* MJUsedBooks-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F076D1B0F90580011EA45 /* MJUsedBooks-Prefix.pch */; };
 		7D8F07701B0F90580011EA45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F076F1B0F90580011EA45 /* Images.xcassets */; };
 		7D8F07731B0F90580011EA45 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F07711B0F90580011EA45 /* LaunchScreen.xib */; };
 		7D8F077F1B0F90580011EA45 /* MJUsedBooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F077E1B0F90580011EA45 /* MJUsedBooksTests.m */; };
+		7D8F078A1B0F91850011EA45 /* MJBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F07891B0F91850011EA45 /* MJBLoginViewController.m */; };
+		7D8F078C1B0F92170011EA45 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8F078B1B0F92170011EA45 /* KakaoOpenSDK.framework */; };
+		7D8F07911B0F93790011EA45 /* MJBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F078F1B0F93790011EA45 /* MJBViewController.m */; };
+		7D8F07921B0F93790011EA45 /* MJBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F07901B0F93790011EA45 /* MJBViewController.xib */; };
+		7D8F07981B0FFF0C0011EA45 /* MJBSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F07971B0FFF0C0011EA45 /* MJBSearchViewController.m */; };
+		7D8F079E1B1003640011EA45 /* MJBMyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F079C1B1003640011EA45 /* MJBMyInfoViewController.m */; };
+		7D8F079F1B1003640011EA45 /* MJBMyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F079D1B1003640011EA45 /* MJBMyInfoViewController.xib */; };
+		7D8F07A31B10CE310011EA45 /* MJBAddInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F07A11B10CE310011EA45 /* MJBAddInfoViewController.m */; };
+		7D8F07A41B10CE310011EA45 /* MJBAddInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F07A21B10CE310011EA45 /* MJBAddInfoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,14 +38,28 @@
 		7D8F07631B0F90580011EA45 /* MJUsedBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJUsedBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D8F07671B0F90580011EA45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D8F07681B0F90580011EA45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7D8F076A1B0F90580011EA45 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7D8F076B1B0F90580011EA45 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7D8F076A1B0F90580011EA45 /* MJBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJBAppDelegate.h; sourceTree = "<group>"; };
+		7D8F076B1B0F90580011EA45 /* MJBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJBAppDelegate.m; sourceTree = "<group>"; };
 		7D8F076D1B0F90580011EA45 /* MJUsedBooks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MJUsedBooks-Prefix.pch"; sourceTree = "<group>"; };
 		7D8F076F1B0F90580011EA45 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D8F07721B0F90580011EA45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7D8F07781B0F90580011EA45 /* MJUsedBooksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MJUsedBooksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D8F077D1B0F90580011EA45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D8F077E1B0F90580011EA45 /* MJUsedBooksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJUsedBooksTests.m; sourceTree = "<group>"; };
+		7D8F07881B0F91850011EA45 /* MJBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBLoginViewController.h; sourceTree = "<group>"; };
+		7D8F07891B0F91850011EA45 /* MJBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBLoginViewController.m; sourceTree = "<group>"; };
+		7D8F078B1B0F92170011EA45 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		7D8F078E1B0F93790011EA45 /* MJBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBViewController.h; sourceTree = "<group>"; };
+		7D8F078F1B0F93790011EA45 /* MJBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBViewController.m; sourceTree = "<group>"; };
+		7D8F07901B0F93790011EA45 /* MJBViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBViewController.xib; sourceTree = "<group>"; };
+		7D8F07961B0FFF0C0011EA45 /* MJBSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBSearchViewController.h; sourceTree = "<group>"; };
+		7D8F07971B0FFF0C0011EA45 /* MJBSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBSearchViewController.m; sourceTree = "<group>"; };
+		7D8F079B1B1003640011EA45 /* MJBMyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBMyInfoViewController.h; sourceTree = "<group>"; };
+		7D8F079C1B1003640011EA45 /* MJBMyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBMyInfoViewController.m; sourceTree = "<group>"; };
+		7D8F079D1B1003640011EA45 /* MJBMyInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBMyInfoViewController.xib; sourceTree = "<group>"; };
+		7D8F07A01B10CE310011EA45 /* MJBAddInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBAddInfoViewController.h; sourceTree = "<group>"; };
+		7D8F07A11B10CE310011EA45 /* MJBAddInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBAddInfoViewController.m; sourceTree = "<group>"; };
+		7D8F07A21B10CE310011EA45 /* MJBAddInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBAddInfoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D8F078C1B0F92170011EA45 /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +84,7 @@
 		7D8F075A1B0F90580011EA45 = {
 			isa = PBXGroup;
 			children = (
+				7D8F078D1B0F92310011EA45 /* Framework */,
 				7D8F07651B0F90580011EA45 /* MJUsedBooks */,
 				7D8F077B1B0F90580011EA45 /* MJUsedBooksTests */,
 				7D8F07641B0F90580011EA45 /* Products */,
@@ -78,8 +103,21 @@
 		7D8F07651B0F90580011EA45 /* MJUsedBooks */ = {
 			isa = PBXGroup;
 			children = (
-				7D8F076A1B0F90580011EA45 /* AppDelegate.h */,
-				7D8F076B1B0F90580011EA45 /* AppDelegate.m */,
+				7D8F076A1B0F90580011EA45 /* MJBAppDelegate.h */,
+				7D8F076B1B0F90580011EA45 /* MJBAppDelegate.m */,
+				7D8F078E1B0F93790011EA45 /* MJBViewController.h */,
+				7D8F078F1B0F93790011EA45 /* MJBViewController.m */,
+				7D8F07901B0F93790011EA45 /* MJBViewController.xib */,
+				7D8F07961B0FFF0C0011EA45 /* MJBSearchViewController.h */,
+				7D8F07971B0FFF0C0011EA45 /* MJBSearchViewController.m */,
+				7D8F079B1B1003640011EA45 /* MJBMyInfoViewController.h */,
+				7D8F079C1B1003640011EA45 /* MJBMyInfoViewController.m */,
+				7D8F079D1B1003640011EA45 /* MJBMyInfoViewController.xib */,
+				7D8F07A01B10CE310011EA45 /* MJBAddInfoViewController.h */,
+				7D8F07A11B10CE310011EA45 /* MJBAddInfoViewController.m */,
+				7D8F07A21B10CE310011EA45 /* MJBAddInfoViewController.xib */,
+				7D8F07881B0F91850011EA45 /* MJBLoginViewController.h */,
+				7D8F07891B0F91850011EA45 /* MJBLoginViewController.m */,
 				7D8F076D1B0F90580011EA45 /* MJUsedBooks-Prefix.pch */,
 				7D8F076F1B0F90580011EA45 /* Images.xcassets */,
 				7D8F07711B0F90580011EA45 /* LaunchScreen.xib */,
@@ -112,6 +150,14 @@
 				7D8F077D1B0F90580011EA45 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7D8F078D1B0F92310011EA45 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				7D8F078B1B0F92170011EA45 /* KakaoOpenSDK.framework */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +204,7 @@
 		7D8F075B1B0F90580011EA45 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MJB;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Myeong Jung";
 				TargetAttributes = {
@@ -194,9 +241,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D8F07A41B10CE310011EA45 /* MJBAddInfoViewController.xib in Resources */,
 				7D8F076E1B0F90580011EA45 /* MJUsedBooks-Prefix.pch in Resources */,
 				7D8F07731B0F90580011EA45 /* LaunchScreen.xib in Resources */,
+				7D8F07921B0F93790011EA45 /* MJBViewController.xib in Resources */,
 				7D8F07701B0F90580011EA45 /* Images.xcassets in Resources */,
+				7D8F079F1B1003640011EA45 /* MJBMyInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +264,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D8F076C1B0F90580011EA45 /* AppDelegate.m in Sources */,
+				7D8F076C1B0F90580011EA45 /* MJBAppDelegate.m in Sources */,
+				7D8F078A1B0F91850011EA45 /* MJBLoginViewController.m in Sources */,
+				7D8F07911B0F93790011EA45 /* MJBViewController.m in Sources */,
+				7D8F07981B0FFF0C0011EA45 /* MJBSearchViewController.m in Sources */,
+				7D8F079E1B1003640011EA45 /* MJBMyInfoViewController.m in Sources */,
+				7D8F07A31B10CE310011EA45 /* MJBAddInfoViewController.m in Sources */,
 				7D8F07691B0F90580011EA45 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,8 +388,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MJUsedBooks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -343,8 +404,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MJUsedBooks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
