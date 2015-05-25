@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MJBFacebookViewController.h"
-//#import <FacebookSDK/FacebookSDK.h>
+
 @interface MJBCoverViewController : UIViewController{
     
 }
@@ -16,4 +16,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *loginButton;
 @property (strong, nonatomic)MJBFacebookViewController *faceView;
 - (IBAction)login:(id)sender;
+
+
 @end

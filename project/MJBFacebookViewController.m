@@ -19,13 +19,31 @@
     
     self.loginButton.readPermissions = @[@"public_profile", @"email"];
     [self.view addSubview:self.loginButton];
+   
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidAppear:) name:UIApplicationDidBecomeActiveNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+
+
     
+    
+    // Do any additional setup after loading the view from its nib.
 }
+
 - (void)viewDidAppear:(BOOL)animated{
     
-    if ([FBSDKAccessToken currentAccessToken]){
+    NSLog(@"current token %@?",[FBSDKAccessToken currentAccessToken]);
+    
+    if ([FBSDKAccessToken currentAccessToken] != nil) {
+        NSLog(@"FB Log Success");
+        self.mainView=[[MJBMainViewController alloc]initWithNibName:nil bundle:nil];//alloc the main view
+        self.mainView.title=@"메인";
+        self.navC=[[UINavigationController alloc]initWithRootViewController:self.mainView];
+        [self.view.window.rootViewController presentViewController:self.navC animated:YES completion:nil];
+    }else{
+        NSLog(@"FB Logout");
+    }
+  //  if ([FBSDKAccessToken currentAccessToken]){
         
         // User is logged in, do work such as go to next view controller.
        
@@ -44,23 +62,13 @@
              }];
         }*/
         
-        self.mainView=[[MJBMainViewController alloc]initWithNibName:nil bundle:nil];//alloc the main view
-        self.mainView.title=@"메인";
-        self.navC=[[UINavigationController alloc]initWithRootViewController:self.mainView];
-        
-        
-        [self.view.window.rootViewController presentViewController:self.navC animated:YES completion:nil];
-
-    }
-    
-    
+   
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 
 /*

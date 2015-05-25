@@ -7,7 +7,7 @@
 //
 
 #import "MJBCoverViewController.h"
-//#import "MJBMainViewController.h"//import the MJBMainViewController
+
 
 @interface MJBCoverViewController ()
 
@@ -34,12 +34,11 @@
 
 - (IBAction)login:(id)sender{
     self.faceView=[[MJBFacebookViewController alloc]init];
-    [FBSDKLoginButton class];
+   [FBSDKLoginButton class];
    // [FBLoginView class];
     [self.view addSubview:self.faceView.view];
-    
- 
 }
+
 
 
 /*

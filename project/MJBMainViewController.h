@@ -15,3 +15,4 @@
 
 @property (nonatomic, weak) NSString* email;
 @end
+

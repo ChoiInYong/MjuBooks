@@ -11,7 +11,6 @@
 #import "MJBMainViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <FacebookSDK/FacebookSDK.h>
 #import <FBSDKCoreKit/FBSDKTestUsersManager.h>
 
 @interface MJBFacebookViewController : UIViewController
@@ -19,5 +18,5 @@
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
 @property (strong, nonatomic) UINavigationController *navC;
 @property (weak, nonatomic) IBOutlet UILabel *info;
-@property BOOL isLoggedIn;
+
 @end

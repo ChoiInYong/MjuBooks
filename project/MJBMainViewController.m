@@ -37,6 +37,9 @@
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewStylePlain reuseIdentifier:CellIdentifier];
     }
     // Configure the cell...
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    imgView.image = [UIImage imageNamed:@"search-25.png"];
+    cell.imageView.image = imgView.image;
     cell.textLabel.text=[NSString stringWithFormat:@"Index row of this cell: %d",indexPath.row];
     return cell;
 }
@@ -45,17 +48,12 @@
 
 
 - (void)back:(id)sender{
-//    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-//    [login logOut];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-       [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
+    [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login logOut];
-   // [FBSDKAccessToken initialize];
-    
-  //  [self.navigationController popToRootViewControllerAnimated:YES];
-
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
