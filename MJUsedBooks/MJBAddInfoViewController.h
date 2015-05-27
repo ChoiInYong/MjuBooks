@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MJBAppDelegate.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface MJBAddInfoViewController : UIViewController
 

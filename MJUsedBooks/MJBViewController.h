@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) MJBAddInfoViewController *addInfoViewController;
 @property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic) UINavigationItem *homeNavItem;
 
 @end

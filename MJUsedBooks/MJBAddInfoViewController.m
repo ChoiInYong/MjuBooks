@@ -9,7 +9,7 @@
 #import "MJBAddInfoViewController.h"
 #import "MJBMyInfoViewController.h"
 
-#import <KakaoOpenSDK/KakaoOpenSDK.h>
+
 
 @interface MJBAddInfoViewController ()
 //@property (weak, nonatomic) IBOutlet UINavigationBar *addInfoNavi;
@@ -51,14 +51,14 @@
         [weakSelf alertWithTitle:@"오류" message:@"휴대폰 번호를 입력해주세요"];
     }
     
-    [KOSessionTask profileUpdateTaskWithProperties:properties completionHandler:^(BOOL success, NSError *error) {
-        if (success) {
-            [weakSelf alertWithTitle:@"update" message:@"성공적으로 저장되었습니다"];
-        } else {
-            [weakSelf alertWithTitle:@"update" message:@"저장하는데 실패하였습니다"];
-            NSLog(@"%@", error);
-        }
-    }];
+//    [KOSessionTask profileUpdateTaskWithProperties:properties completionHandler:^(BOOL success, NSError *error) {
+//        if (success) {
+//            [weakSelf alertWithTitle:@"update" message:@"성공적으로 저장되었습니다"];
+//        } else {
+//            [weakSelf alertWithTitle:@"update" message:@"저장하는데 실패하였습니다"];
+//            NSLog(@"%@", error);
+//        }
+//    }];
     [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
 //
 //    MJBMyInfoViewController *myInfoViewController = [[MJBMyInfoViewController alloc] initWithNibName:@"MJBMyInfoViewController" bundle:nil];

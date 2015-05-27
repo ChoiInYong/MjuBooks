@@ -33,6 +33,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self styleNavBar];
+}
+
+- (void)styleNavBar {
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    UINavigationBar *newNavBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 64.0)];
+    [newNavBar setTintColor:[UIColor whiteColor]];
+    UINavigationItem *searchNavItem = [[UINavigationItem alloc] init];
+    searchNavItem.title = @"검색";
+    [newNavBar setItems:@[searchNavItem]];
+    
+    [self.view addSubview:newNavBar];
+}
+
 /*
 #pragma mark - Navigation
 

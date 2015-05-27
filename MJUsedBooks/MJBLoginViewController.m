@@ -8,7 +8,7 @@
 
 #import "MJBLoginViewController.h"
 
-#import <KakaoOpenSDK/KakaoOpenSDK.h>
+
 
 NSString *const LoginSuccessNotification = @"LoginSuccessNotification";
 
@@ -32,42 +32,28 @@ NSString *const LoginSuccessNotification = @"LoginSuccessNotification";
     [super loadView];
     
 //    // logo display
-//    UIImage *kakaoLogoImage = [KOImages kakaoLogo];
-//    UIImageView *kakaoLogoImageView = [[UIImageView alloc] initWithImage:kakaoLogoImage];
-//    kakaoLogoImageView.frame = CGRectMake(0, 0, kakaoLogoImage.size.width, kakaoLogoImage.size.height);
-//    kakaoLogoImageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-//    kakaoLogoImageView.center = self.view.center;
-//    
-//    [self.view addSubview:kakaoLogoImageView];
     
     // 로그인버튼 보여주기
-    UIButton *kakaoAccountConnectButton = [self createKakaoAccountConnectButton];
-    [self.view addSubview:kakaoAccountConnectButton];
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    loginButton.center = self.view.center;
+    [self.view addSubview:loginButton];
+    
     
 }
 
-- (UIButton *)createKakaoAccountConnectButton {
-    // button 위치 설정
-    int xMargin = 30;
-    int marginBottom = 25;
-    CGFloat btnWidth = self.view.frame.size.width - xMargin * 2;
-    int btnHeight = 42;
-    
-    UIButton *btnKakaoLogin
-    = [[KOLoginButton alloc] initWithFrame:CGRectMake(xMargin, self.view.frame.size.height - btnHeight - marginBottom, btnWidth, btnHeight)];
-    btnKakaoLogin.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
-    
-    // 로그인 버튼 눌렀을 때 action
-    [btnKakaoLogin addTarget:self action:@selector(invokeLoginWithTarget:) forControlEvents:UIControlEventTouchUpInside];
-    
-    return btnKakaoLogin;
-}
 
 - (void)viewDidLoad {
+    self.loginButton.readPermissions = @[@"public_profile", @"email"];
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidAppear:) name:UIApplicationDidBecomeActiveNotification object:nil];
     // Do any additional setup after loading the view.
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+    if ([FBSDKAccessToken currentAccessToken]) {
+        // User is logged in, do work such as go to next view controller.
+        [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccessNotification object:self];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -75,29 +61,7 @@ NSString *const LoginSuccessNotification = @"LoginSuccessNotification";
 
 #pragma mark - actions
 
-- (IBAction)invokeLoginWithTarget:(id)sender {
-    // 현재 세션 정보를 인증 토큰을 제거하여 무효화
-    [[KOSession sharedSession] close];
-    
-    // 기기의 로그인 수행 가능한 카카오 앱에 로그인 요청을 전달한다
-    // 내부 블럭은 요청 완료시 실행될 block이며 오류 처리와 로그인 완료 작업을 수행한다
-    [[KOSession sharedSession] openWithCompletionHandler:^(NSError *error) {
-        // 현재 세션 정보가 인증되어있으면
-        if ([[KOSession sharedSession] isOpen]) {
-            // 로그인 성공
-            NSLog(@"login success.");
-            [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccessNotification object:self];
-        } else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"로그인 실패"
-                                                                message:@"로그인 정보를 확인해주세요"
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"확인"
-                                                      otherButtonTitles:nil];
-            [alertView show];
-        }
-        
-    }];
-}
+
 
 /*
 #pragma mark - Navigation

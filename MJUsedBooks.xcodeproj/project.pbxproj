@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FB5D6C71B1618F900CF8420 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB5D6C51B1618F900CF8420 /* FBSDKCoreKit.framework */; };
+		4FB5D6C81B1618F900CF8420 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB5D6C61B1618F900CF8420 /* FBSDKLoginKit.framework */; };
+		7D4912BA1B14940600605BA2 /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4912B91B14940600605BA2 /* defaultImage.png */; };
 		7D8F07691B0F90580011EA45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F07681B0F90580011EA45 /* main.m */; };
 		7D8F076C1B0F90580011EA45 /* MJBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F076B1B0F90580011EA45 /* MJBAppDelegate.m */; };
 		7D8F076E1B0F90580011EA45 /* MJUsedBooks-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F076D1B0F90580011EA45 /* MJUsedBooks-Prefix.pch */; };
@@ -14,7 +17,6 @@
 		7D8F07731B0F90580011EA45 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F07711B0F90580011EA45 /* LaunchScreen.xib */; };
 		7D8F077F1B0F90580011EA45 /* MJUsedBooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F077E1B0F90580011EA45 /* MJUsedBooksTests.m */; };
 		7D8F078A1B0F91850011EA45 /* MJBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F07891B0F91850011EA45 /* MJBLoginViewController.m */; };
-		7D8F078C1B0F92170011EA45 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8F078B1B0F92170011EA45 /* KakaoOpenSDK.framework */; };
 		7D8F07911B0F93790011EA45 /* MJBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F078F1B0F93790011EA45 /* MJBViewController.m */; };
 		7D8F07921B0F93790011EA45 /* MJBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F07901B0F93790011EA45 /* MJBViewController.xib */; };
 		7D8F07981B0FFF0C0011EA45 /* MJBSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F07971B0FFF0C0011EA45 /* MJBSearchViewController.m */; };
@@ -22,6 +24,9 @@
 		7D8F079F1B1003640011EA45 /* MJBMyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F079D1B1003640011EA45 /* MJBMyInfoViewController.xib */; };
 		7D8F07A31B10CE310011EA45 /* MJBAddInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F07A11B10CE310011EA45 /* MJBAddInfoViewController.m */; };
 		7D8F07A41B10CE310011EA45 /* MJBAddInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F07A21B10CE310011EA45 /* MJBAddInfoViewController.xib */; };
+		7D8F07A81B120E730011EA45 /* MJBSellBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F07A61B120E730011EA45 /* MJBSellBookViewController.m */; };
+		7D8F07A91B120E730011EA45 /* MJBSellBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F07A71B120E730011EA45 /* MJBSellBookViewController.xib */; };
+		7D8F07AD1B133AF30011EA45 /* Arrows-Back-icon-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F07AC1B133AF30011EA45 /* Arrows-Back-icon-3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4FB5D6C51B1618F900CF8420 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		4FB5D6C61B1618F900CF8420 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		7D4912B91B14940600605BA2 /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		7D8F07631B0F90580011EA45 /* MJUsedBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJUsedBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D8F07671B0F90580011EA45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D8F07681B0F90580011EA45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -48,7 +56,6 @@
 		7D8F077E1B0F90580011EA45 /* MJUsedBooksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJUsedBooksTests.m; sourceTree = "<group>"; };
 		7D8F07881B0F91850011EA45 /* MJBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBLoginViewController.h; sourceTree = "<group>"; };
 		7D8F07891B0F91850011EA45 /* MJBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBLoginViewController.m; sourceTree = "<group>"; };
-		7D8F078B1B0F92170011EA45 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		7D8F078E1B0F93790011EA45 /* MJBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBViewController.h; sourceTree = "<group>"; };
 		7D8F078F1B0F93790011EA45 /* MJBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBViewController.m; sourceTree = "<group>"; };
 		7D8F07901B0F93790011EA45 /* MJBViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBViewController.xib; sourceTree = "<group>"; };
@@ -60,6 +67,10 @@
 		7D8F07A01B10CE310011EA45 /* MJBAddInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBAddInfoViewController.h; sourceTree = "<group>"; };
 		7D8F07A11B10CE310011EA45 /* MJBAddInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBAddInfoViewController.m; sourceTree = "<group>"; };
 		7D8F07A21B10CE310011EA45 /* MJBAddInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBAddInfoViewController.xib; sourceTree = "<group>"; };
+		7D8F07A51B120E730011EA45 /* MJBSellBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBSellBookViewController.h; sourceTree = "<group>"; };
+		7D8F07A61B120E730011EA45 /* MJBSellBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBSellBookViewController.m; sourceTree = "<group>"; };
+		7D8F07A71B120E730011EA45 /* MJBSellBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBSellBookViewController.xib; sourceTree = "<group>"; };
+		7D8F07AC1B133AF30011EA45 /* Arrows-Back-icon-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrows-Back-icon-3.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D8F078C1B0F92170011EA45 /* KakaoOpenSDK.framework in Frameworks */,
+				4FB5D6C71B1618F900CF8420 /* FBSDKCoreKit.framework in Frameworks */,
+				4FB5D6C81B1618F900CF8420 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +96,8 @@
 		7D8F075A1B0F90580011EA45 = {
 			isa = PBXGroup;
 			children = (
+				7D4912B91B14940600605BA2 /* defaultImage.png */,
+				7D8F07AC1B133AF30011EA45 /* Arrows-Back-icon-3.png */,
 				7D8F078D1B0F92310011EA45 /* Framework */,
 				7D8F07651B0F90580011EA45 /* MJUsedBooks */,
 				7D8F077B1B0F90580011EA45 /* MJUsedBooksTests */,
@@ -113,6 +127,9 @@
 				7D8F079B1B1003640011EA45 /* MJBMyInfoViewController.h */,
 				7D8F079C1B1003640011EA45 /* MJBMyInfoViewController.m */,
 				7D8F079D1B1003640011EA45 /* MJBMyInfoViewController.xib */,
+				7D8F07A51B120E730011EA45 /* MJBSellBookViewController.h */,
+				7D8F07A61B120E730011EA45 /* MJBSellBookViewController.m */,
+				7D8F07A71B120E730011EA45 /* MJBSellBookViewController.xib */,
 				7D8F07A01B10CE310011EA45 /* MJBAddInfoViewController.h */,
 				7D8F07A11B10CE310011EA45 /* MJBAddInfoViewController.m */,
 				7D8F07A21B10CE310011EA45 /* MJBAddInfoViewController.xib */,
@@ -155,7 +172,8 @@
 		7D8F078D1B0F92310011EA45 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				7D8F078B1B0F92170011EA45 /* KakaoOpenSDK.framework */,
+				4FB5D6C51B1618F900CF8420 /* FBSDKCoreKit.framework */,
+				4FB5D6C61B1618F900CF8420 /* FBSDKLoginKit.framework */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -241,11 +259,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D8F07AD1B133AF30011EA45 /* Arrows-Back-icon-3.png in Resources */,
 				7D8F07A41B10CE310011EA45 /* MJBAddInfoViewController.xib in Resources */,
 				7D8F076E1B0F90580011EA45 /* MJUsedBooks-Prefix.pch in Resources */,
 				7D8F07731B0F90580011EA45 /* LaunchScreen.xib in Resources */,
 				7D8F07921B0F93790011EA45 /* MJBViewController.xib in Resources */,
 				7D8F07701B0F90580011EA45 /* Images.xcassets in Resources */,
+				7D8F07A91B120E730011EA45 /* MJBSellBookViewController.xib in Resources */,
+				7D4912BA1B14940600605BA2 /* defaultImage.png in Resources */,
 				7D8F079F1B1003640011EA45 /* MJBMyInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D8F076C1B0F90580011EA45 /* MJBAppDelegate.m in Sources */,
+				7D8F07A81B120E730011EA45 /* MJBSellBookViewController.m in Sources */,
 				7D8F078A1B0F91850011EA45 /* MJBLoginViewController.m in Sources */,
 				7D8F07911B0F93790011EA45 /* MJBViewController.m in Sources */,
 				7D8F07981B0FFF0C0011EA45 /* MJBSearchViewController.m in Sources */,
@@ -469,6 +491,7 @@
 				7D8F07841B0F90580011EA45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D8F07851B0F90580011EA45 /* Build configuration list for PBXNativeTarget "MJUsedBooksTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +500,7 @@
 				7D8F07871B0F90580011EA45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -12,7 +12,8 @@
 #import "MJBMyInfoViewController.h"
 #import "MJBSearchViewController.h"
 
-#import <KakaoOpenSDK/KakaoOpenSDK.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface MJBAppDelegate ()
 
@@ -22,6 +23,7 @@
 
 // 로그인 화면 보여주기
 - (void)showLoginView {
+    [FBSDKLoginButton class];
     MJBLoginViewController *loginViewController = [[MJBLoginViewController alloc] initWithNibName:nil bundle:nil];
     self.window.rootViewController = loginViewController;
     self.window.backgroundColor = [UIColor whiteColor];
@@ -33,16 +35,13 @@
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     
-    NSMutableArray *viewControllers = [[NSMutableArray alloc] init];
-    
     MJBViewController *mainViewController = [[MJBViewController alloc] init];
     MJBMyInfoViewController *myInfoViewController = [[MJBMyInfoViewController alloc] init];
     MJBSearchViewController *searchViewController = [[MJBSearchViewController alloc] init];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
-    viewControllers = [NSMutableArray arrayWithObjects:navigationController, searchViewController, myInfoViewController, nil];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    tabBarController.viewControllers = @[mainViewController, searchViewController, myInfoViewController];
     
-    tabBarController.viewControllers = viewControllers;
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -50,7 +49,10 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return [KOSession handleOpenURL:url];
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 
@@ -63,10 +65,7 @@
     
     // name이라는 이름으로 전달된 메세지를 옵저버가 받아서 @selector(함수명)의 함수를 실행시킴
     // 카카오계정의 세션 연결상태
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(kakaoSessionDidChangeWithNotification:)
-                                                 name:KOSessionDidChangeNotification
-                                               object:nil];
+    
     
     // 로그인 화면에서 로그인 완료 메세지를 날리면 메인 화면을 보여주도록 설정
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -81,21 +80,17 @@
                                                object:nil];
     
     
-    if ([[KOSession sharedSession] isOpen]) {
+    if ([FBSDKAccessToken currentAccessToken]) {
         [self showMainView];
     } else {
         [self showLoginView];
     }
     
-    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
 }
 
-- (void)kakaoSessionDidChangeWithNotification:(NSNotification *)notification {
-    // 만약 카카오 세션의 상태가 열려있지 않다면 로그인 화면을 보여준다
-    if ([KOSession sharedSession].state == KOSessionStateNotOpen) {
-        [self showLoginView];
-    }
-}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -113,7 +108,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [KOSession handleDidBecomeActive];
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

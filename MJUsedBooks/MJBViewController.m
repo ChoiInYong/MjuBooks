@@ -8,7 +8,6 @@
 
 #import "MJBViewController.h"
 
-#import <KakaoOpenSDK/KakaoOpenSDK.h>
 
 @interface MJBViewController ()
 
@@ -20,7 +19,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"홈";
         self.tabBarItem.title = @"홈";
     }
     return self;
@@ -30,19 +28,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     // 현재 로그인된 사용자의 정보를 얻어옴
-    [KOSessionTask meTaskWithCompletionHandler:^(KOUser *result, NSError *error) {
-        if ([result propertyForKey:@"phone_number"] == Nil) {
-            self.addInfoViewController = [[MJBAddInfoViewController alloc] initWithNibName:nil bundle:nil];
-            self.addInfoViewController.title = @"추가정보입력";
-            self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.addInfoViewController];
-            [self.view.window.rootViewController presentViewController:self.navigationController animated:YES completion:^(){
-                NSLog(@"go add page");
-            }];
-//            [self presentViewController:_addInfoViewController animated:YES completion:^(){
+//    [KOSessionTask meTaskWithCompletionHandler:^(KOUser *result, NSError *error) {
+//        if ([result propertyForKey:@"phone_number"] == Nil) {
+//            self.addInfoViewController = [[MJBAddInfoViewController alloc] initWithNibName:nil bundle:nil];
+//            self.addInfoViewController.title = @"추가정보입력";
+//            self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.addInfoViewController];
+//            [self.view.window.rootViewController presentViewController:self.navigationController animated:YES completion:^(){
 //                NSLog(@"go add page");
 //            }];
-        }
-    }];
+//        }
+//    }];
     
 }
 
@@ -51,6 +46,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self styleNavBar];
+}
+
+- (void)styleNavBar {
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    UINavigationBar *newNavBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 64.0)];
+    [newNavBar setTintColor:[UIColor whiteColor]];
+    _homeNavItem = [[UINavigationItem alloc] init];
+    _homeNavItem.title = @"명지대 중고책방";
+    [newNavBar setItems:@[_homeNavItem]];
+    
+    [self.view addSubview:newNavBar];
+}
 /*
 #pragma mark - Navigation
 

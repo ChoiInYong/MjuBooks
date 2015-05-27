@@ -25,14 +25,16 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kakaocfd69eb76716162ff287bbcdc4ebbb58</string>
+				<string>fb1586942914927906</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>KAKAO_APP_KEY</key>
-	<string>cfd69eb76716162ff287bbcdc4ebbb58</string>
+	<key>FacebookAppID</key>
+	<string>1586942914927906</string>
+	<key>FacebookDisplayName</key>
+	<string>명지대 중고책방</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
