@@ -12,5 +12,7 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface MJBAddInfoViewController : UIViewController
-
+@property (nonatomic, strong) NSMutableData *responseData;
+@property NSString* email;
+@property int count;
 @end

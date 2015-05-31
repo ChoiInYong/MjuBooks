@@ -10,6 +10,8 @@
 		4FB5D6C71B1618F900CF8420 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB5D6C51B1618F900CF8420 /* FBSDKCoreKit.framework */; };
 		4FB5D6C81B1618F900CF8420 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB5D6C61B1618F900CF8420 /* FBSDKLoginKit.framework */; };
 		7D4912BA1B14940600605BA2 /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4912B91B14940600605BA2 /* defaultImage.png */; };
+		7D652ED01B18AB670022DCAC /* MJBMyDealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D652ECE1B18AB670022DCAC /* MJBMyDealViewController.m */; };
+		7D652ED11B18AB670022DCAC /* MJBMyDealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D652ECF1B18AB670022DCAC /* MJBMyDealViewController.xib */; };
 		7D8F07691B0F90580011EA45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F07681B0F90580011EA45 /* main.m */; };
 		7D8F076C1B0F90580011EA45 /* MJBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F076B1B0F90580011EA45 /* MJBAppDelegate.m */; };
 		7D8F076E1B0F90580011EA45 /* MJUsedBooks-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 7D8F076D1B0F90580011EA45 /* MJUsedBooks-Prefix.pch */; };
@@ -43,6 +45,9 @@
 		4FB5D6C51B1618F900CF8420 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		4FB5D6C61B1618F900CF8420 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		7D4912B91B14940600605BA2 /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
+		7D652ECD1B18AB670022DCAC /* MJBMyDealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBMyDealViewController.h; sourceTree = "<group>"; };
+		7D652ECE1B18AB670022DCAC /* MJBMyDealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBMyDealViewController.m; sourceTree = "<group>"; };
+		7D652ECF1B18AB670022DCAC /* MJBMyDealViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBMyDealViewController.xib; sourceTree = "<group>"; };
 		7D8F07631B0F90580011EA45 /* MJUsedBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJUsedBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D8F07671B0F90580011EA45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D8F07681B0F90580011EA45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -130,6 +135,9 @@
 				7D8F07A51B120E730011EA45 /* MJBSellBookViewController.h */,
 				7D8F07A61B120E730011EA45 /* MJBSellBookViewController.m */,
 				7D8F07A71B120E730011EA45 /* MJBSellBookViewController.xib */,
+				7D652ECD1B18AB670022DCAC /* MJBMyDealViewController.h */,
+				7D652ECE1B18AB670022DCAC /* MJBMyDealViewController.m */,
+				7D652ECF1B18AB670022DCAC /* MJBMyDealViewController.xib */,
 				7D8F07A01B10CE310011EA45 /* MJBAddInfoViewController.h */,
 				7D8F07A11B10CE310011EA45 /* MJBAddInfoViewController.m */,
 				7D8F07A21B10CE310011EA45 /* MJBAddInfoViewController.xib */,
@@ -265,6 +273,7 @@
 				7D8F07731B0F90580011EA45 /* LaunchScreen.xib in Resources */,
 				7D8F07921B0F93790011EA45 /* MJBViewController.xib in Resources */,
 				7D8F07701B0F90580011EA45 /* Images.xcassets in Resources */,
+				7D652ED11B18AB670022DCAC /* MJBMyDealViewController.xib in Resources */,
 				7D8F07A91B120E730011EA45 /* MJBSellBookViewController.xib in Resources */,
 				7D4912BA1B14940600605BA2 /* defaultImage.png in Resources */,
 				7D8F079F1B1003640011EA45 /* MJBMyInfoViewController.xib in Resources */,
@@ -292,6 +301,7 @@
 				7D8F07981B0FFF0C0011EA45 /* MJBSearchViewController.m in Sources */,
 				7D8F079E1B1003640011EA45 /* MJBMyInfoViewController.m in Sources */,
 				7D8F07A31B10CE310011EA45 /* MJBAddInfoViewController.m in Sources */,
+				7D652ED01B18AB670022DCAC /* MJBMyDealViewController.m in Sources */,
 				7D8F07691B0F90580011EA45 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

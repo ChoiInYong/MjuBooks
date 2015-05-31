@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJBAddInfoViewController.h"
+//#import "MJBAddInfoViewController.h"
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+@interface MJBViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@interface MJBViewController : UIViewController
 
-@property (nonatomic, strong) MJBAddInfoViewController *addInfoViewController;
-@property (nonatomic, strong) UINavigationController *navigationController;
+//@property (nonatomic, strong) MJBAddInfoViewController *addInfoViewController;
+//@property (nonatomic, strong) UINavigationController *navigationController;
 @property (nonatomic) UINavigationItem *homeNavItem;
-
+@property (nonatomic, strong) NSMutableData *responseData;
+@property NSString *email;
+@property NSArray *list;
+@property UITableView *book;
 @end

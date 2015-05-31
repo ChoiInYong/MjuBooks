@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MJBSellBookViewController.h"
+#import "MJBMyDealViewController.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 extern NSString *const LogoutSuccessNotification;
@@ -16,7 +17,15 @@ extern NSString *const LogoutSuccessNotification;
 
 @property (nonatomic, strong) MJBSellBookViewController *sellBookVC;
 @property (nonatomic, strong) UINavigationController *sellBookUINavC;
-
+@property (nonatomic, strong) MJBMyDealViewController *myDealVC;
+@property (nonatomic, strong) UINavigationController *myDealUINavC;
+@property (nonatomic, strong) NSMutableData *responseData;
+@property UITextField * alertTextField;
+@property UIAlertView *alert;
+@property BOOL isUpdatePhone;
 - (IBAction)sellBookButtonClicked:(id)sender;
+- (IBAction)myDealButtonClicked:(id)sender;
+
+- (IBAction)phoneNumberChange:(id)sender;
 
 @end

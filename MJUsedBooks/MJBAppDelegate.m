@@ -81,6 +81,7 @@
     
     
     if ([FBSDKAccessToken currentAccessToken]) {
+       
         [self showMainView];
     } else {
         [self showLoginView];
