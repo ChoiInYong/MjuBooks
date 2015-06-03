@@ -48,30 +48,27 @@
     
     NSMutableDictionary *properties = [NSMutableDictionary dictionary];
     if ([self.phoneNumber text].length > 0) {
-        properties[@"phone_number"] = [_phoneNumber text];
+        properties[@"phone_number"] = [self.phoneNumber text];
         if (self.count==0) {
+            UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            activityIndicator.frame = CGRectMake(10.0, 0.0, 40.0, 40.0);
+            activityIndicator.center = self.view.center;
+            [self.view addSubview: activityIndicator];
+            
+            [activityIndicator startAnimating];
+
+            
             [self saveUser];
             self.count++;
         }
         [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
-        //        MJBMyInfoViewController *myInfoViewController = [[MJBMyInfoViewController alloc] initWithNibName:@"MJBMyInfoViewController" bundle:nil];
-        //        [self presentViewController:myInfoViewController animated:YES completion:^(){
-        //            NSLog(@"phone number update");
-        //        }];
+      
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccessNotification" object:self];
     } else {
         [weakSelf alertWithTitle:@"오류" message:@"휴대폰 번호를 입력해주세요"];
     }
     
-    //    [KOSessionTask profileUpdateTaskWithProperties:properties completionHandler:^(BOOL success, NSError *error) {
-    //        if (success) {
-    //            [weakSelf alertWithTitle:@"update" message:@"성공적으로 저장되었습니다"];
-    //        } else {
-    //            [weakSelf alertWithTitle:@"update" message:@"저장하는데 실패하였습니다"];
-    //            NSLog(@"%@", error);
-    //        }
-    //    }];
-    //
+    
 
 }
 - (void)saveUser{

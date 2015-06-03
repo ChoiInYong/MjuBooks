@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4FB5D6C71B1618F900CF8420 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB5D6C51B1618F900CF8420 /* FBSDKCoreKit.framework */; };
-		4FB5D6C81B1618F900CF8420 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB5D6C61B1618F900CF8420 /* FBSDKLoginKit.framework */; };
+		4798CC875458D60BAE743191 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E03C95BA63714E295BEC654 /* libPods.a */; };
+		4F9AC44B1B1E06470007471D /* home_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9AC4491B1E06470007471D /* home_filled.png */; };
+		4F9AC44C1B1E06470007471D /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9AC44A1B1E06470007471D /* home.png */; };
+		4F9AC4501B1E0C350007471D /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9AC44F1B1E0C350007471D /* search.png */; };
+		4F9AC4541B1E0E7C0007471D /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9AC4531B1E0E7C0007471D /* book.png */; };
+		4F9AC45A1B1E3C440007471D /* horizontal-line-blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F9AC4591B1E3C440007471D /* horizontal-line-blue.jpg */; };
+		4FCC81221B1ED29200B98761 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FCC811E1B1ED29200B98761 /* checked.png */; };
+		4FCC81231B1ED29200B98761 /* checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FCC811F1B1ED29200B98761 /* checked@2x.png */; };
+		4FCC81241B1ED29200B98761 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FCC81201B1ED29200B98761 /* unchecked.png */; };
+		4FCC81251B1ED29200B98761 /* unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FCC81211B1ED29200B98761 /* unchecked@2x.png */; };
+		4FD2FC971B1B1B6000AAA75E /* MJBDetailSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2FC961B1B1B6000AAA75E /* MJBDetailSearchViewController.m */; };
 		7D4912BA1B14940600605BA2 /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D4912B91B14940600605BA2 /* defaultImage.png */; };
 		7D652ED01B18AB670022DCAC /* MJBMyDealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D652ECE1B18AB670022DCAC /* MJBMyDealViewController.m */; };
 		7D652ED11B18AB670022DCAC /* MJBMyDealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D652ECF1B18AB670022DCAC /* MJBMyDealViewController.xib */; };
@@ -42,8 +51,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4FB5D6C51B1618F900CF8420 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		4FB5D6C61B1618F900CF8420 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		0E03C95BA63714E295BEC654 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FF4080981B2B58503DF60A3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4F9AC4491B1E06470007471D /* home_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_filled.png; sourceTree = "<group>"; };
+		4F9AC44A1B1E06470007471D /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		4F9AC44F1B1E0C350007471D /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		4F9AC4531B1E0E7C0007471D /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
+		4F9AC4591B1E3C440007471D /* horizontal-line-blue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "horizontal-line-blue.jpg"; sourceTree = "<group>"; };
+		4FCC811E1B1ED29200B98761 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
+		4FCC811F1B1ED29200B98761 /* checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checked@2x.png"; sourceTree = "<group>"; };
+		4FCC81201B1ED29200B98761 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
+		4FCC81211B1ED29200B98761 /* unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked@2x.png"; sourceTree = "<group>"; };
+		4FD2FC951B1B1B6000AAA75E /* MJBDetailSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBDetailSearchViewController.h; sourceTree = "<group>"; };
+		4FD2FC961B1B1B6000AAA75E /* MJBDetailSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBDetailSearchViewController.m; sourceTree = "<group>"; };
 		7D4912B91B14940600605BA2 /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		7D652ECD1B18AB670022DCAC /* MJBMyDealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBMyDealViewController.h; sourceTree = "<group>"; };
 		7D652ECE1B18AB670022DCAC /* MJBMyDealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBMyDealViewController.m; sourceTree = "<group>"; };
@@ -76,6 +96,7 @@
 		7D8F07A61B120E730011EA45 /* MJBSellBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBSellBookViewController.m; sourceTree = "<group>"; };
 		7D8F07A71B120E730011EA45 /* MJBSellBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJBSellBookViewController.xib; sourceTree = "<group>"; };
 		7D8F07AC1B133AF30011EA45 /* Arrows-Back-icon-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrows-Back-icon-3.png"; sourceTree = "<group>"; };
+		A050400A8FE4B71E23EFF28D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FB5D6C71B1618F900CF8420 /* FBSDKCoreKit.framework in Frameworks */,
-				4FB5D6C81B1618F900CF8420 /* FBSDKLoginKit.framework in Frameworks */,
+				4798CC875458D60BAE743191 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,15 +118,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1929247495723029EB106A1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E03C95BA63714E295BEC654 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7D8F075A1B0F90580011EA45 = {
 			isa = PBXGroup;
 			children = (
 				7D4912B91B14940600605BA2 /* defaultImage.png */,
+				4FCC811E1B1ED29200B98761 /* checked.png */,
+				4FCC811F1B1ED29200B98761 /* checked@2x.png */,
+				4FCC81201B1ED29200B98761 /* unchecked.png */,
+				4FCC81211B1ED29200B98761 /* unchecked@2x.png */,
 				7D8F07AC1B133AF30011EA45 /* Arrows-Back-icon-3.png */,
-				7D8F078D1B0F92310011EA45 /* Framework */,
+				4F9AC4491B1E06470007471D /* home_filled.png */,
+				4F9AC44A1B1E06470007471D /* home.png */,
+				4F9AC44F1B1E0C350007471D /* search.png */,
+				4F9AC4531B1E0E7C0007471D /* book.png */,
+				4F9AC4591B1E3C440007471D /* horizontal-line-blue.jpg */,
 				7D8F07651B0F90580011EA45 /* MJUsedBooks */,
 				7D8F077B1B0F90580011EA45 /* MJUsedBooksTests */,
 				7D8F07641B0F90580011EA45 /* Products */,
+				8A7B9D6AFFC5479A64C1E93D /* Pods */,
+				1929247495723029EB106A1C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +167,8 @@
 				7D8F07901B0F93790011EA45 /* MJBViewController.xib */,
 				7D8F07961B0FFF0C0011EA45 /* MJBSearchViewController.h */,
 				7D8F07971B0FFF0C0011EA45 /* MJBSearchViewController.m */,
+				4FD2FC951B1B1B6000AAA75E /* MJBDetailSearchViewController.h */,
+				4FD2FC961B1B1B6000AAA75E /* MJBDetailSearchViewController.m */,
 				7D8F079B1B1003640011EA45 /* MJBMyInfoViewController.h */,
 				7D8F079C1B1003640011EA45 /* MJBMyInfoViewController.m */,
 				7D8F079D1B1003640011EA45 /* MJBMyInfoViewController.xib */,
@@ -177,13 +217,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7D8F078D1B0F92310011EA45 /* Framework */ = {
+		8A7B9D6AFFC5479A64C1E93D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4FB5D6C51B1618F900CF8420 /* FBSDKCoreKit.framework */,
-				4FB5D6C61B1618F900CF8420 /* FBSDKLoginKit.framework */,
+				A050400A8FE4B71E23EFF28D /* Pods.debug.xcconfig */,
+				1FF4080981B2B58503DF60A3 /* Pods.release.xcconfig */,
 			);
-			name = Framework;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,9 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D8F07821B0F90580011EA45 /* Build configuration list for PBXNativeTarget "MJUsedBooks" */;
 			buildPhases = (
+				217BD6705AC396B23C0A4F1D /* Check Pods Manifest.lock */,
 				7D8F075F1B0F90580011EA45 /* Sources */,
 				7D8F07601B0F90580011EA45 /* Frameworks */,
 				7D8F07611B0F90580011EA45 /* Resources */,
+				B7ABBACE2986D3684B24A7A0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,10 +314,19 @@
 				7D8F076E1B0F90580011EA45 /* MJUsedBooks-Prefix.pch in Resources */,
 				7D8F07731B0F90580011EA45 /* LaunchScreen.xib in Resources */,
 				7D8F07921B0F93790011EA45 /* MJBViewController.xib in Resources */,
+				4FCC81221B1ED29200B98761 /* checked.png in Resources */,
+				4F9AC44B1B1E06470007471D /* home_filled.png in Resources */,
+				4F9AC4541B1E0E7C0007471D /* book.png in Resources */,
+				4FCC81251B1ED29200B98761 /* unchecked@2x.png in Resources */,
+				4F9AC45A1B1E3C440007471D /* horizontal-line-blue.jpg in Resources */,
 				7D8F07701B0F90580011EA45 /* Images.xcassets in Resources */,
 				7D652ED11B18AB670022DCAC /* MJBMyDealViewController.xib in Resources */,
+				4F9AC4501B1E0C350007471D /* search.png in Resources */,
+				4F9AC44C1B1E06470007471D /* home.png in Resources */,
 				7D8F07A91B120E730011EA45 /* MJBSellBookViewController.xib in Resources */,
+				4FCC81231B1ED29200B98761 /* checked@2x.png in Resources */,
 				7D4912BA1B14940600605BA2 /* defaultImage.png in Resources */,
+				4FCC81241B1ED29200B98761 /* unchecked.png in Resources */,
 				7D8F079F1B1003640011EA45 /* MJBMyInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +340,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		217BD6705AC396B23C0A4F1D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B7ABBACE2986D3684B24A7A0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7D8F075F1B0F90580011EA45 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -297,6 +381,7 @@
 				7D8F076C1B0F90580011EA45 /* MJBAppDelegate.m in Sources */,
 				7D8F07A81B120E730011EA45 /* MJBSellBookViewController.m in Sources */,
 				7D8F078A1B0F91850011EA45 /* MJBLoginViewController.m in Sources */,
+				4FD2FC971B1B1B6000AAA75E /* MJBDetailSearchViewController.m in Sources */,
 				7D8F07911B0F93790011EA45 /* MJBViewController.m in Sources */,
 				7D8F07981B0FFF0C0011EA45 /* MJBSearchViewController.m in Sources */,
 				7D8F079E1B1003640011EA45 /* MJBMyInfoViewController.m in Sources */,
@@ -418,6 +503,7 @@
 		};
 		7D8F07831B0F90580011EA45 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A050400A8FE4B71E23EFF28D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -427,13 +513,14 @@
 				INFOPLIST_FILE = MJUsedBooks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		7D8F07841B0F90580011EA45 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FF4080981B2B58503DF60A3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -443,7 +530,7 @@
 				INFOPLIST_FILE = MJUsedBooks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

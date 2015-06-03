@@ -32,6 +32,7 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
     
     if (self) {
         self.tabBarItem.title = @"마이페이지";
+        [self.tabBarItem setImage:[UIImage imageNamed:@"book.png"]];
     }
     
     return self;
@@ -47,6 +48,13 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
     if([FBSDKAccessToken currentAccessToken]) {
         FBSDKLoginButton *permission = [[FBSDKLoginButton alloc] init];
         permission.readPermissions=@[@"public_profile", @"email"];
+        self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        self.activityIndicator.frame = CGRectMake(10.0, 0.0, 40.0, 40.0);
+        self.activityIndicator.center = self.view.center;
+        [self.view addSubview: self.activityIndicator];
+         self.isLoading=true;
+        [self.activityIndicator startAnimating];
+
         [self showProfle];
     }
     
@@ -59,9 +67,11 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
 
 - (IBAction)logoutButtonClicked:(id)sender {
     // 현재 기기에서 로그아웃한다
-    FBSDKLoginManager *loginManager=[[FBSDKLoginManager alloc]init];
-    [loginManager logOut];
-    [[NSNotificationCenter defaultCenter] postNotificationName:LogoutSuccessNotification object:self];
+    if (self.isLoading==false) {
+        FBSDKLoginManager *loginManager=[[FBSDKLoginManager alloc]init];
+        [loginManager logOut];
+        [[NSNotificationCenter defaultCenter] postNotificationName:LogoutSuccessNotification object:self];
+    }
     
 }
 
@@ -69,34 +79,43 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
 
 - (IBAction)sellBookButtonClicked:(id)sender
 {
-    // 책 판매하기 버튼 눌렀을때 작동하는 부분
-    self.sellBookVC = [[MJBSellBookViewController alloc] init];
-//    [self displayContentController:_sellBookVC];
-    self.sellBookUINavC = [[UINavigationController alloc] initWithRootViewController:self.sellBookVC];
-    [self.view.window.rootViewController presentViewController:self.sellBookUINavC animated:YES completion:nil];
+    if (self.isLoading==false) {
+        // 책 판매하기 버튼 눌렀을때 작동하는 부분
+        self.sellBookVC = [[MJBSellBookViewController alloc] init];
+        //    [self displayContentController:_sellBookVC];
+        self.sellBookUINavC = [[UINavigationController alloc] initWithRootViewController:self.sellBookVC];
+        [self.view.window.rootViewController presentViewController:self.sellBookUINavC animated:YES completion:nil];
+    }
+    
 }
 
 - (IBAction)myDealButtonClicked:(id)sender
 {
-    // 내 거래
-    self.myDealVC = [[MJBMyDealViewController alloc] init];
-    self.myDealUINavC = [[UINavigationController alloc] initWithRootViewController:self.myDealVC];
-    [self.view.window.rootViewController presentViewController:self.myDealUINavC animated:YES completion:nil];
+    if (self.isLoading==false) {
+        // 내 거래
+        self.myDealVC = [[MJBMyDealViewController alloc] init];
+        self.myDealVC.email=self.IDValueLabel.text;
+        self.myDealUINavC = [[UINavigationController alloc] initWithRootViewController:self.myDealVC];
+        [self.view.window.rootViewController presentViewController:self.myDealUINavC animated:YES completion:nil];
+    }
+   
 }
 
 - (IBAction)phoneNumberChange:(id)sender
 {
-    //핸드폰 번호 수정 팝업
-    
-    self.alert = [[UIAlertView alloc] initWithTitle:@"연락처를 수정해주세요" message:@"" delegate:self cancelButtonTitle:@"취소" otherButtonTitles:@"수정", nil];
-    self.alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    if (self.isLoading==false) {
+        //핸드폰 번호 수정 팝업
         
-    self.alertTextField = [self.alert textFieldAtIndex:0];
-//    self.alertTextField.keyboardType = UIKeyboardTypeNumberPad;//일단 에러가 떠서 막아놨어
-    self.alertTextField.placeholder = @"01012345678";
-    
-    [self.alert show];
-    
+        self.alert = [[UIAlertView alloc] initWithTitle:@"연락처를 수정해주세요" message:@"" delegate:self cancelButtonTitle:@"취소" otherButtonTitles:@"수정", nil];
+        self.alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        
+        self.alertTextField = [self.alert textFieldAtIndex:0];
+        //    self.alertTextField.keyboardType = UIKeyboardTypeNumberPad;//일단 에러가 떠서 막아놨어
+        self.alertTextField.placeholder = @"01012345678";
+        
+        [self.alert show];
+        
+    }
 
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -120,6 +139,8 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
              UIImage *fbImage = [UIImage imageWithData:imageData];
              [self.profileImage setImage:fbImage];
              [self connectForPhone:self.IDValueLabel.text ];
+             [self.activityIndicator stopAnimating];
+             self.isLoading=false;
          }else{
              NSLog(@"Get FBEmail failed");
          }

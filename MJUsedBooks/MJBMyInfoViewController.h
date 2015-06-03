@@ -22,7 +22,9 @@ extern NSString *const LogoutSuccessNotification;
 @property (nonatomic, strong) NSMutableData *responseData;
 @property UITextField * alertTextField;
 @property UIAlertView *alert;
+@property UIActivityIndicatorView *activityIndicator;
 @property BOOL isUpdatePhone;
+@property BOOL isLoading;
 - (IBAction)sellBookButtonClicked:(id)sender;
 - (IBAction)myDealButtonClicked:(id)sender;
 

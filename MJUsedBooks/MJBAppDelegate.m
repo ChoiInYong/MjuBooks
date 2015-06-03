@@ -15,8 +15,12 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface MJBAppDelegate ()
+#import <AWSCore.h>
+#import <AWSCognito.h>
+#import <AWSService.h>
 
+@interface MJBAppDelegate ()
+@property MJBLoginViewController *loginViewController;
 @end
 
 @implementation MJBAppDelegate
@@ -24,8 +28,8 @@
 // 로그인 화면 보여주기
 - (void)showLoginView {
     [FBSDKLoginButton class];
-    MJBLoginViewController *loginViewController = [[MJBLoginViewController alloc] initWithNibName:nil bundle:nil];
-    self.window.rootViewController = loginViewController;
+    self.loginViewController = [[MJBLoginViewController alloc] initWithNibName:nil bundle:nil];
+    self.window.rootViewController = self.loginViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 }
@@ -39,6 +43,8 @@
     MJBMyInfoViewController *myInfoViewController = [[MJBMyInfoViewController alloc] init];
     MJBSearchViewController *searchViewController = [[MJBSearchViewController alloc] init];
     
+    mainViewController.email=self.loginViewController.email;
+    searchViewController.email=self.loginViewController.email;
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
     tabBarController.viewControllers = @[mainViewController, searchViewController, myInfoViewController];
     
@@ -81,11 +87,18 @@
     
     
     if ([FBSDKAccessToken currentAccessToken]) {
-       
         [self showMainView];
     } else {
         [self showLoginView];
     }
+    
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc]
+                                                          initWithRegionType:AWSRegionUSEast1
+                                                          identityPoolId:@"us-east-1:00c3f914-f438-45b1-8ff4-d255d5fe94c2"];
+    
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:credentialsProvider];
+    AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
+    
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];

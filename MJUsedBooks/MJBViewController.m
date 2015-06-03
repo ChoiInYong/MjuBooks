@@ -20,6 +20,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.tabBarItem.title = @"홈";
+        [self.tabBarItem setSelectedImage:[UIImage imageNamed:@"home_filled.png"]];
+        [self.tabBarItem setImage:[UIImage imageNamed:@"home.png"]];
     }
     
     return self;
@@ -145,6 +147,9 @@
     
     
     self.list = [res objectForKey:@"books"];
+    self.list=[self.list sortedArrayUsingDescriptors: [NSArray arrayWithObjects: [NSSortDescriptor sortDescriptorWithKey:@"bookId" ascending:NO], [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:NO], nil]];
+
+    
 //    for(id key in res) {
 //        
 //        id value = [res objectForKey:key];
@@ -159,6 +164,7 @@
     [self.book reloadData];
     
 }
+
 /*
 #pragma mark - Navigation
 

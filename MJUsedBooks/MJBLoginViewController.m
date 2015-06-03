@@ -128,15 +128,15 @@ NSString *const LoginSuccessNotification = @"LoginSuccessNotification";
     ////    // extract specific value...
     
     id value = [res objectForKey:@"check"];
-    
+   
     if ((int)value==3) {
         self.addInfoViewController = [[MJBAddInfoViewController alloc] initWithNibName:nil bundle:nil];
         self.addInfoViewController.title = @"추가정보입력";
         self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.addInfoViewController];
         [self.view.window.rootViewController presentViewController:self.navigationController animated:YES completion:^(){NSLog(@"go add page");}];
-        
     }else{
       [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccessNotification object:self];
+        
     }
     
     
