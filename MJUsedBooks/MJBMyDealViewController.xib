@@ -7,9 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MJBMyDealViewController">
             <connections>
-                <outlet property="buyView" destination="OmY-NE-YJZ" id="7wr-wu-Tlw"/>
+                <outlet property="first" destination="um3-yx-68G" id="4LT-pq-Ryv"/>
+                <outlet property="myDealTV" destination="sFi-o4-aCY" id="uRj-zV-H3s"/>
+                <outlet property="myTableV" destination="sFi-o4-aCY" id="S7l-HM-Ae4"/>
+                <outlet property="sec" destination="qB4-w8-Vtb" id="Yyx-iL-hkV"/>
                 <outlet property="segmentedControl" destination="2rF-KN-fpo" id="49C-BD-zhS"/>
-                <outlet property="sellView" destination="bFa-jt-e3Z" id="p6W-AK-YsT"/>
+                <outlet property="third" destination="i6X-c7-Osq" id="nHC-b6-kmP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,42 +22,39 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2rF-KN-fpo">
-                    <rect key="frame" x="33" y="69" width="309" height="29"/>
+                    <rect key="frame" x="0.0" y="65" width="375" height="29"/>
                     <segments>
                         <segment title="판매"/>
                         <segment title="구매"/>
+                        <segment title="구매 완료"/>
                     </segments>
                     <connections>
                         <action selector="segmentedValueChanged:" destination="-1" eventType="valueChanged" id="yVk-VD-PFr"/>
                     </connections>
                 </segmentedControl>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bFa-jt-e3Z" userLabel="sellView">
-                    <rect key="frame" x="0.0" y="105" width="375" height="475"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="판매" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfc-a1-M9d">
-                            <rect key="frame" x="172" y="227" width="30" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
-                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OmY-NE-YJZ" userLabel="buyView">
-                    <rect key="frame" x="0.0" y="105" width="375" height="475"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="구매" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x65-Xf-aa8">
-                            <rect key="frame" x="172" y="227" width="30" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sFi-o4-aCY">
+                    <rect key="frame" x="0.0" y="101" width="375" height="566"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Q9S-Ya-AmO"/>
+                        <outlet property="delegate" destination="-1" id="Amv-b3-gfI"/>
+                    </connections>
+                </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horizontal-line-blue.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="um3-yx-68G">
+                    <rect key="frame" x="0.0" y="90" width="125" height="10"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horizontal-line-blue.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="qB4-w8-Vtb">
+                    <rect key="frame" x="125" y="90" width="125" height="10"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horizontal-line-blue.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="i6X-c7-Osq">
+                    <rect key="frame" x="248" y="90" width="125" height="10"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
+    <resources>
+        <image name="horizontal-line-blue.jpg" width="833" height="108"/>
+    </resources>
 </document>

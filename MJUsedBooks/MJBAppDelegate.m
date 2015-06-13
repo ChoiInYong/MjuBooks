@@ -16,7 +16,7 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface MJBAppDelegate ()
-
+@property MJBLoginViewController *loginViewController;
 @end
 
 @implementation MJBAppDelegate
@@ -24,8 +24,8 @@
 // 로그인 화면 보여주기
 - (void)showLoginView {
     [FBSDKLoginButton class];
-    MJBLoginViewController *loginViewController = [[MJBLoginViewController alloc] initWithNibName:nil bundle:nil];
-    self.window.rootViewController = loginViewController;
+    self.loginViewController = [[MJBLoginViewController alloc] initWithNibName:nil bundle:nil];
+    self.window.rootViewController = self.loginViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 }
@@ -35,12 +35,22 @@
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     
+//    [tabBarController.tabBar setBarTintColor:[UIColor colorWithRed:51.0f/255.0f green:102.0f/255.0f blue:153.0f/255.0f alpha:1.0f]];
+    
+    
     MJBViewController *mainViewController = [[MJBViewController alloc] init];
     MJBMyInfoViewController *myInfoViewController = [[MJBMyInfoViewController alloc] init];
+    MJBSellBookViewController *sellBookcontroller=[[MJBSellBookViewController alloc] init];
     MJBSearchViewController *searchViewController = [[MJBSearchViewController alloc] init];
     
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
-    tabBarController.viewControllers = @[mainViewController, searchViewController, myInfoViewController];
+    
+    mainViewController.email=self.loginViewController.email;
+    sellBookcontroller.user=self.loginViewController.email;
+    searchViewController.email=self.loginViewController.email;
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    UINavigationController *searchNav = [[UINavigationController alloc] initWithRootViewController:searchViewController];
+    tabBarController.viewControllers = @[nav, sellBookcontroller, searchNav,myInfoViewController];
     
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
@@ -58,8 +68,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+//    self.CognitoRegionType = AWSRegionUSEast1; // e.g. AWSRegionUSEast1
+//    self.DefaultServiceRegionType = AWSRegionUSEast1; // e.g. AWSRegionUSEast1
+//    self.CognitoIdentityPoolId = @"us-east-1:ff69bc88-63a4-47af-b9d9-9b996c947e2a";
+//    self.S3BucketName = @"mjbs3";
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"us-east-1:6d6525e6-0024-4e15-b3b8-863d92769f9c"];
     
+
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                         credentialsProvider:credentialsProvider];
+    
+    AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
     // 카카오계정의 세션 연결 상태가 변했을 시,
     // Notification 을 kakaoSessionDidChangeWithNotification 메소드에 전달하도록 설정
     
@@ -81,7 +102,6 @@
     
     
     if ([FBSDKAccessToken currentAccessToken]) {
-       
         [self showMainView];
     } else {
         [self showLoginView];

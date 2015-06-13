@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "MJBAddInfoViewController.h"
+#import "MJBDetailViewController.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 @interface MJBViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
@@ -20,4 +20,5 @@
 @property NSString *email;
 @property NSArray *list;
 @property UITableView *book;
+@property UIActivityIndicatorView *activityIndicator;
 @end

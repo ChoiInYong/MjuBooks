@@ -22,7 +22,22 @@ extern NSString *const LogoutSuccessNotification;
 @property (nonatomic, strong) NSMutableData *responseData;
 @property UITextField * alertTextField;
 @property UIAlertView *alert;
+@property UIActivityIndicatorView *activityIndicator;
 @property BOOL isUpdatePhone;
+@property BOOL isLoading;
+
+@property NSString *IDValueLabel;
+@property NSString *phoneNumber;
+@property NSString *userName;
+@property NSString *gender;
+@property NSString *birthday;
+@property NSString *email;
+
+@property (nonatomic, weak) IBOutlet UITableView *firstT;
+@property (nonatomic, weak) IBOutlet UITableView *secT;
+
+@property BOOL isPhone;
+
 - (IBAction)sellBookButtonClicked:(id)sender;
 - (IBAction)myDealButtonClicked:(id)sender;
 

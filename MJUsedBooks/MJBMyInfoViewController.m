@@ -16,9 +16,6 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
 @interface MJBMyInfoViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *sellBookButton;
 @property (weak, nonatomic) IBOutlet UIButton *myDealButton;
-@property (weak, nonatomic) IBOutlet UILabel *phoneNumber;
-@property (weak, nonatomic) IBOutlet UILabel *userName;
-@property (weak, nonatomic) IBOutlet UILabel *IDValueLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (nonatomic, readonly) NSString *nickName;
 
@@ -29,9 +26,15 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
+    self.IDValueLabel=@"";
+    self.userName=@"";
+    self.gender=@"";
+    self.phoneNumber=@"";
+    self.birthday=@"";
+    self.email=@"";
     if (self) {
         self.tabBarItem.title = @"마이페이지";
+        [self.tabBarItem setImage:[UIImage imageNamed:@"book.png"]];
     }
     
     return self;
@@ -47,6 +50,13 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
     if([FBSDKAccessToken currentAccessToken]) {
         FBSDKLoginButton *permission = [[FBSDKLoginButton alloc] init];
         permission.readPermissions=@[@"public_profile", @"email"];
+        self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        self.activityIndicator.frame = CGRectMake(10.0, 0.0, 40.0, 40.0);
+        self.activityIndicator.center = self.view.center;
+        [self.view addSubview: self.activityIndicator];
+         self.isLoading=true;
+        [self.activityIndicator startAnimating];
+
         [self showProfle];
     }
     
@@ -59,9 +69,11 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
 
 - (IBAction)logoutButtonClicked:(id)sender {
     // 현재 기기에서 로그아웃한다
-    FBSDKLoginManager *loginManager=[[FBSDKLoginManager alloc]init];
-    [loginManager logOut];
-    [[NSNotificationCenter defaultCenter] postNotificationName:LogoutSuccessNotification object:self];
+    if (self.isLoading==false) {
+        FBSDKLoginManager *loginManager=[[FBSDKLoginManager alloc]init];
+        [loginManager logOut];
+        [[NSNotificationCenter defaultCenter] postNotificationName:LogoutSuccessNotification object:self];
+    }
     
 }
 
@@ -69,64 +81,170 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
 
 - (IBAction)sellBookButtonClicked:(id)sender
 {
-    // 책 판매하기 버튼 눌렀을때 작동하는 부분
-    self.sellBookVC = [[MJBSellBookViewController alloc] init];
-//    [self displayContentController:_sellBookVC];
-    self.sellBookUINavC = [[UINavigationController alloc] initWithRootViewController:self.sellBookVC];
-    [self.view.window.rootViewController presentViewController:self.sellBookUINavC animated:YES completion:nil];
+    if (self.isLoading==false) {
+        // 책 판매하기 버튼 눌렀을때 작동하는 부분
+        self.sellBookVC = [[MJBSellBookViewController alloc] init];
+        self.sellBookVC.user=self.IDValueLabel;
+        //    [self displayContentController:_sellBookVC];
+        self.sellBookUINavC = [[UINavigationController alloc] initWithRootViewController:self.sellBookVC];
+        [self.view.window.rootViewController presentViewController:self.sellBookUINavC animated:YES completion:nil];
+    }
+    
 }
 
 - (IBAction)myDealButtonClicked:(id)sender
 {
-    // 내 거래
-    self.myDealVC = [[MJBMyDealViewController alloc] init];
-    self.myDealUINavC = [[UINavigationController alloc] initWithRootViewController:self.myDealVC];
-    [self.view.window.rootViewController presentViewController:self.myDealUINavC animated:YES completion:nil];
+    if (self.isLoading==false) {
+        // 내 거래
+        self.myDealVC = [[MJBMyDealViewController alloc] init];
+        self.myDealVC.email=self.IDValueLabel;
+        self.myDealUINavC = [[UINavigationController alloc] initWithRootViewController:self.myDealVC];
+        [self.view.window.rootViewController presentViewController:self.myDealUINavC animated:YES completion:nil];
+    }
+   
 }
 
 - (IBAction)phoneNumberChange:(id)sender
 {
-    //핸드폰 번호 수정 팝업
-    
-    self.alert = [[UIAlertView alloc] initWithTitle:@"연락처를 수정해주세요" message:@"" delegate:self cancelButtonTitle:@"취소" otherButtonTitles:@"수정", nil];
-    self.alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    if (self.isLoading==false) {
+        //핸드폰 번호 수정 팝업
+        self.isPhone=true;
+        self.alert = [[UIAlertView alloc] initWithTitle:@"연락처를 수정해주세요" message:@"" delegate:self cancelButtonTitle:@"취소" otherButtonTitles:@"수정", nil];
+        self.alert.alertViewStyle = UIAlertViewStylePlainTextInput;
         
-    self.alertTextField = [self.alert textFieldAtIndex:0];
-//    self.alertTextField.keyboardType = UIKeyboardTypeNumberPad;//일단 에러가 떠서 막아놨어
-    self.alertTextField.placeholder = @"01012345678";
-    
-    [self.alert show];
-    
+        self.alertTextField = [self.alert textFieldAtIndex:0];
+        //    self.alertTextField.keyboardType = UIKeyboardTypeNumberPad;//일단 에러가 떠서 막아놨어
+        self.alertTextField.placeholder = @"01012345678";
+        
+        [self.alert show];
+        
+    }
 
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0){
         NSLog(@"cancel");
     }else{
-        self.isUpdatePhone=true;
-        self.phoneNumber.text = [self.alert textFieldAtIndex:0].text;
-        [self connectForUpdatePhone:self.IDValueLabel.text phone:self.phoneNumber.text];
+        if (self.isPhone==true) {
+            self.isUpdatePhone=true;
+            self.phoneNumber = [self.alert textFieldAtIndex:0].text;
+            [self connectForUpdatePhone:self.IDValueLabel phone:self.phoneNumber];
+        }else{
+            self.isUpdatePhone=true;
+            self.email=[self.alert textFieldAtIndex:0].text;
+            [self connectForUpdateEmail:self.IDValueLabel p_email:self.email];
+        }
+        
+        [self.secT reloadData];
     }
 }
+- (IBAction)emailChange:(id)sender
+{
+    if (self.isLoading==false) {
+        //핸드폰 번호 수정 팝업
+        self.isPhone=false;
+        
+        self.alert = [[UIAlertView alloc] initWithTitle:@"이메일을 수정해주세요" message:@"" delegate:self cancelButtonTitle:@"취소" otherButtonTitles:@"수정", nil];
+        self.alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        
+        self.alertTextField = [self.alert textFieldAtIndex:0];
+        //    self.alertTextField.keyboardType = UIKeyboardTypeNumberPad;//일단 에러가 떠서 막아놨어
+        self.alertTextField.placeholder = @"123@naver.com";
+        
+        [self.alert show];
+        
+    }
+    
+}
+
 - (void)showProfle{
     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
      startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
          if (!error) {
-             self.IDValueLabel.text=[result objectForKey:@"id"];
-             self.userName.text=[result objectForKey:@"name"];
+             self.IDValueLabel=[result objectForKey:@"id"];
+             self.userName=[result objectForKey:@"name"];
+             self.gender=[result objectForKey:@"gender"];
              NSString *pic=[result objectForKey:@"id"];
              NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", pic]];
              NSData *imageData = [NSData dataWithContentsOfURL:pictureURL];
              UIImage *fbImage = [UIImage imageWithData:imageData];
              [self.profileImage setImage:fbImage];
-             [self connectForPhone:self.IDValueLabel.text ];
+             [self connectForPhone:self.IDValueLabel ];
+             [self.activityIndicator stopAnimating];
+             [self.firstT reloadData];
+             [self.secT reloadData];
+             self.isLoading=false;
+             
          }else{
              NSLog(@"Get FBEmail failed");
          }
      }];
     
 }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView==self.firstT) {
+        return 2;
+    }else{
+        return 4;
+    }
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *infoTableIdentifier = @"infoTableCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:infoTableIdentifier];
+    
+
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:infoTableIdentifier];
+
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    if (tableView==self.firstT) {
+        if (indexPath.row==0) {
+            cell.textLabel.text=[NSString stringWithFormat:@"이름: %@", self.userName];
+        }else{
+            cell.textLabel.text=[NSString stringWithFormat:@"성별: %@", self.gender];
+        }
+        
+    }else{
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake(cell.frame.origin.x + 250, cell.frame.origin.y + 10, 50, 30);
+        
+        [button setTitle:@"수정" forState:UIControlStateNormal];
+        button.backgroundColor= [UIColor whiteColor];
+        [button setTag:indexPath.row];
+        button.layer.borderWidth=.5f;
+        button.layer.borderColor=[[UIColor blueColor]CGColor];
+        button.layer.cornerRadius=5;
+        button.clipsToBounds=YES;
+
+        if(indexPath.row==0){
+            cell.textLabel.text=[NSString stringWithFormat:@"계정: %@", self.IDValueLabel];
+             [button setHidden:YES];
+        }else if (indexPath.row==1) {
+            cell.textLabel.text=[NSString stringWithFormat:@"가입일: %@", self.birthday];
+            [button setHidden:YES];
+        }else if(indexPath.row==2){
+            cell.textLabel.text=[NSString stringWithFormat:@"핸드폰 번호: %@", self.phoneNumber];
+            //set the position of the button
+            [button addTarget:self action:@selector(phoneNumberChange:) forControlEvents:UIControlEventTouchUpInside];
+        }else{
+            if (self.email == (id)[NSNull null] || self.email.length == 0) {
+                cell.textLabel.text=[NSString stringWithFormat:@"이메일: "];
+            } else {
+                cell.textLabel.text=[NSString stringWithFormat:@"이메일: %@", self.email];
+            }
+            
+            //set the position of the button
+            [button addTarget:self action:@selector(emailChange:) forControlEvents:UIControlEventTouchUpInside];
+
+        }
+        [cell.contentView addSubview:button];
+    }
+       //    cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
+    return cell;
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -140,7 +258,7 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
     UINavigationItem *myInfoNavItem = [[UINavigationItem alloc] init];
     myInfoNavItem.title = @"내 정보";
     [newNavBar setItems:@[myInfoNavItem]];
-    
+    [newNavBar setBackgroundColor:[UIColor colorWithRed:90.0f/255.0f green:141.0f/255.0f blue:192.0f/255.0f alpha:1.0f]];
     [self.view addSubview:newNavBar];
 }
 
@@ -152,7 +270,7 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
     [content didMoveToParentViewController:self];
 }
 - (void)connectForPhone:(NSString *)email{
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://52.68.178.195:8000/getPhoneNumber"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://52.68.178.195:8000/getUser"]];
     
     NSString *getString = [NSString stringWithFormat:@"{\"email\":\"%@\"}", email];
     [request setHTTPBody:[getString dataUsingEncoding:NSUTF8StringEncoding]];
@@ -168,6 +286,19 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://52.68.178.195:8000/updatePhone"]];
     
     NSString *getString = [NSString stringWithFormat:@"{\"email\":\"%@\",\"phone\":\"%@\"}", email,phone];
+    [request setHTTPBody:[getString dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPMethod:@"PUT"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    if (connection) {
+    }
+    else {}
+}
+- (void)connectForUpdateEmail:(NSString *)email p_email:(NSString *)p_email{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://52.68.178.195:8000/updateEmail"]];
+    
+    NSString *getString = [NSString stringWithFormat:@"{\"email\":\"%@\",\"profileEmail\":\"%@\"}", email,p_email];
     [request setHTTPBody:[getString dataUsingEncoding:NSUTF8StringEncoding]];
     [request setHTTPMethod:@"PUT"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -203,23 +334,16 @@ NSString *const LogoutSuccessNotification = @"LogoutSuccessNotification";
     ////    // extract specific value...
     if (self.isUpdatePhone==false) {
         id value= [res objectForKey:@"phone"];
-        self.phoneNumber.text=(NSString *)value;
+        id signData=[res objectForKey:@"Date"];
+        id profileEmail=[res objectForKey:@"profileEmail"];
+        self.phoneNumber=(NSString *)value;
+        self.birthday=(NSString*)signData;
+        self.birthday = [[self.birthday componentsSeparatedByString:@"T"] objectAtIndex:0];
+        self.email=(NSString*)profileEmail;
+        [self.secT reloadData];
     }else{
-    
-    
-//        for(id key in res) {
-//    
-//            id value = [res objectForKey:key];
-//    
-//            NSString *keyAsString = (NSString *)key;
-//            NSString *valueAsString = (NSString *)value;
-//    
-//            NSLog(@"\nkey: %@", keyAsString);
-//            NSLog(@"value: %@", valueAsString);
-//        }
         self.isUpdatePhone=false;
     }
-    
     
 }
 

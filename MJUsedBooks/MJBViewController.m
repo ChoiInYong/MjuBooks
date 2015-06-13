@@ -20,6 +20,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.tabBarItem.title = @"홈";
+        [self.tabBarItem setSelectedImage:[UIImage imageNamed:@"home_filled.png"]];
+        [self.tabBarItem setImage:[UIImage imageNamed:@"home.png"]];
+        
     }
     
     return self;
@@ -29,13 +32,32 @@
     self.list=[[NSArray alloc]init];
     self.responseData = [NSMutableData data];
     self.book=[[UITableView alloc]init];
-    self.book = [[UITableView alloc] initWithFrame:CGRectMake(0, 70, 373, 530)];
+    self.book = [[UITableView alloc] initWithFrame:CGRectMake(0, 111, 375, 566)];
     self.book.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.book.delegate = self;
     self.book.dataSource = self;
+    [self.book setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];    // Do any additional setup after loading the view from its nib.
+    
+    UILabel *sellLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 75, 375,20)];
+    sellLabel.textAlignment=NSTextAlignmentCenter;
+    sellLabel.text=@"매      물      리      스      트";
+    sellLabel.font = [sellLabel.font fontWithSize:13];
+    [self.view addSubview:sellLabel];
+    
+    UIImageView *first =[[UIImageView alloc] initWithFrame:CGRectMake(0, 95, self.view.frame.size.width, 10)];
+    first.image=[UIImage imageNamed:@"horizontal-line-blue.jpg"];
+    [self.view addSubview:first];
+
+    
     [self.view addSubview:self.book];
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+     self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicator.frame = CGRectMake(10.0, 0.0, 40.0, 40.0);
+    self.activityIndicator.center = self.view.center;
+    [self.view addSubview: self.activityIndicator];
+    
+    [self.activityIndicator startAnimating];
+    
     // 현재 로그인된 사용자의 정보를 얻어옴
     
 
@@ -54,35 +76,96 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    
+    UILabel *titleLabel;
+    UILabel *profLabel;
+    UILabel *priceLable;
+    UILabel *courseLable;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 0, cell.frame.size.width-130, 20)];
+        titleLabel.tag = 1;
+        titleLabel.font = [UIFont boldSystemFontOfSize:15.0];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:titleLabel];
+        
+        profLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 20, cell.frame.size.width-130, 15)];
+        profLabel.tag = 2;
+        profLabel.font = [UIFont systemFontOfSize:12.0];
+        profLabel.backgroundColor = [UIColor clearColor];
+        profLabel.textAlignment=NSTextAlignmentRight;
+        [cell.contentView addSubview:profLabel];
+        
+        priceLable = [[UILabel alloc] initWithFrame:CGRectMake(130, 35, cell.frame.size.width-130, 15)];
+        priceLable.tag = 3;
+        priceLable.font = [UIFont systemFontOfSize:12.0];
+        priceLable.backgroundColor = [UIColor clearColor];
+        priceLable.textAlignment=NSTextAlignmentRight;
+        [cell.contentView addSubview:priceLable];
+
+        courseLable = [[UILabel alloc] initWithFrame:CGRectMake(130, 50, cell.frame.size.width-130, 15)];
+        courseLable.tag = 4;
+        courseLable.font = [UIFont systemFontOfSize:12.0];
+        courseLable.backgroundColor = [UIColor clearColor];
+        courseLable.textAlignment=NSTextAlignmentRight;
+        [cell.contentView addSubview:courseLable];
+
+    }else{
+        titleLabel = (UILabel *)[cell.contentView viewWithTag:1];
+        profLabel = (UILabel *)[cell.contentView viewWithTag:2];
+        priceLable = (UILabel *)[cell.contentView viewWithTag:3];
+        courseLable = (UILabel *)[cell.contentView viewWithTag:4];
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text=[[self.list objectAtIndex:indexPath.row] objectForKey:@"bookName"];
-    
+    NSString *title=[[self.list objectAtIndex:indexPath.row] objectForKey:@"bookName"];
     NSString *prof=[[self.list objectAtIndex:indexPath.row] objectForKey:@"professor"];
     NSString *price=[[self.list objectAtIndex:indexPath.row] objectForKey:@"price"];
     NSString *course=[[self.list objectAtIndex:indexPath.row] objectForKey:@"courseName"];
-    cell.detailTextLabel.text=[NSString stringWithFormat:@"교수님: %@ 과목: %@ 가격: %@원", prof, course,price];
+
+    titleLabel.text=title;
+    profLabel.text=[NSString stringWithFormat:@"교수님: %@ ", prof];
+    priceLable.text=[NSString stringWithFormat:@"가격: %@ 원", price];
+    courseLable.text=[NSString stringWithFormat:@"과목: %@", course];
+    //    cell.textLabel.text=[NSString stringWithFormat:@"책 제목: %@ 가격: %@원", title,price];
+//    cell.detailTextLabel.text=[NSString stringWithFormat:@"교수님: %@ 과목: %@", prof, course];
     
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    UIImageView *imgView = [[UIImageView alloc] init];
     
     NSString *pic=[[self.list objectAtIndex:indexPath.row] objectForKey:@"pictureUrl"];
     NSURL *pictureURL = [NSURL URLWithString:pic];
     NSData *imageData = [NSData dataWithContentsOfURL:pictureURL];
     imgView.image = [UIImage imageWithData:imageData];
+
     cell.imageView.image = imgView.image;
-//    cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
+
+    CGSize itemSize = CGSizeMake(100, 50);
+    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
+    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+    [cell.imageView.image drawInRect:imageRect];
+    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     return cell;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MJBDetailViewController *detailVC = [[MJBDetailViewController alloc] init];
+    NSString* temp = [[self.list objectAtIndex:indexPath.row] objectForKey:@"bookId"];
+    detailVC.bookId = temp;
+    detailVC.email=self.email;
+//    UINavigationController *detailUINavC = [[UINavigationController alloc] initWithRootViewController:detailVC];
+//    [self presentViewController:detailUINavC animated:YES completion:nil];
     
+    [self.navigationController pushViewController:detailVC animated:YES];
     
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 65;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -101,7 +184,7 @@
     self.homeNavItem = [[UINavigationItem alloc] init];
     self.homeNavItem.title = @"명지대 중고책방";
     [newNavBar setItems:@[self.homeNavItem]];
-    
+    [newNavBar setBackgroundColor:[UIColor colorWithRed:90.0f/255.0f green:141.0f/255.0f blue:192.0f/255.0f alpha:1.0f]];
     [self.view addSubview:newNavBar];
 }
 
@@ -145,6 +228,9 @@
     
     
     self.list = [res objectForKey:@"books"];
+    self.list=[self.list sortedArrayUsingDescriptors: [NSArray arrayWithObjects: [NSSortDescriptor sortDescriptorWithKey:@"bookId" ascending:NO], [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:NO], nil]];
+
+    
 //    for(id key in res) {
 //        
 //        id value = [res objectForKey:key];
@@ -156,9 +242,12 @@
 //        NSLog(@"value: %@", valueAsString);
 //    }
 
+    
     [self.book reloadData];
+    [self.activityIndicator stopAnimating];
     
 }
+
 /*
 #pragma mark - Navigation
 

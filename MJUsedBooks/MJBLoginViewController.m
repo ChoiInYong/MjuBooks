@@ -32,11 +32,13 @@ NSString *const LoginSuccessNotification = @"LoginSuccessNotification";
     [super loadView];
     self.responseData=[NSMutableData data];
     self.count=0;
-//    // logo display
-    
+    // logo display
+    UIImageView *logo=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 350)];
+    logo.image=[UIImage imageNamed:@"loginPage.jpeg"];
+    [self.view addSubview:logo];
     // 로그인버튼 보여주기
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    [self.view setFrame:CGRectMake(35, 600, 300, 50)];
+    [self.view setFrame:CGRectMake(35, 570, 300, 50)];
     loginButton.frame=self.view.frame;
     [self.view addSubview:loginButton];
     
@@ -128,15 +130,15 @@ NSString *const LoginSuccessNotification = @"LoginSuccessNotification";
     ////    // extract specific value...
     
     id value = [res objectForKey:@"check"];
-    
+   
     if ((int)value==3) {
         self.addInfoViewController = [[MJBAddInfoViewController alloc] initWithNibName:nil bundle:nil];
         self.addInfoViewController.title = @"추가정보입력";
         self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.addInfoViewController];
         [self.view.window.rootViewController presentViewController:self.navigationController animated:YES completion:^(){NSLog(@"go add page");}];
-        
     }else{
       [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccessNotification object:self];
+        
     }
     
     
