@@ -111,7 +111,7 @@
     NSString *course=[[self.detailList objectAtIndex:indexPath.row] objectForKey:@"courseName"];
     
     titleLabel.text=title;
-    profLabel.text=[NSString stringWithFormat:@"교수님: %@ ", prof];
+    profLabel.text=[NSString stringWithFormat:@"교수: %@ ", prof];
     priceLable.text=[NSString stringWithFormat:@"가격: %@ 원", price];
     courseLable.text=[NSString stringWithFormat:@"과목: %@", course];
     //    cell.textLabel.text=[NSString stringWithFormat:@"책 제목: %@ 가격: %@원", title,price];
@@ -147,7 +147,7 @@
     NSString* temp = [[self.detailList objectAtIndex:indexPath.row] objectForKey:@"bookId"];
     detailVC.bookId = temp;
     detailVC.email=self.email;
-    UINavigationController *detailUINavC = [[UINavigationController alloc] initWithRootViewController:detailVC];
+//    UINavigationController *detailUINavC = [[UINavigationController alloc] initWithRootViewController:detailVC];
 //    [self presentViewController:detailUINavC animated:YES completion:nil];
     [self.navigationController pushViewController:detailVC animated:YES];
     

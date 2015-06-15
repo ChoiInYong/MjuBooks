@@ -31,6 +31,7 @@
     [super viewDidLoad];
     self.responseData = [NSMutableData data];
     _bookImage = [UIImage imageNamed:@"default.png"];
+    [self.bookImage setAccessibilityIdentifier:@"default"];
     [_bookImageView setImage:_bookImage];
     _bookState = @"";
     // Do any additional setup after loading the view from its nib.
@@ -87,6 +88,7 @@
 - (IBAction)registerButtonClicked:(id)sender
 {
     __weak MJBSellBookViewController *weakSelf = self;
+    
     if ([[_bookTitle text] isEqualToString:@""]) {
         [weakSelf alertWithTitle:@"책 등록" message:@"책 제목을 입력하여 주십시오"];
     }else if ([[_professorName text] isEqualToString:@""]) {
@@ -97,21 +99,34 @@
         [weakSelf alertWithTitle:@"책 등록" message:@"책 상태를 선택하여 주십시오"];
     }else if ([[_price text] isEqualToString:@""]) {
         [weakSelf alertWithTitle:@"책 등록" message:@"가격을 입력하여 주십시오"];
+    }else if([[self.bookImageView image].accessibilityIdentifier isEqualToString:@"default"]){
+        [weakSelf alertWithTitle:@"책 등록" message:@"사진을 선택하여 주십시오"];
     }else {
         NSString *temp=[NSString stringWithFormat:@"https://s3.amazonaws.com/mjusedbooks/pic_%d.jpg",self.picNum];
         [self connectForBookName:[_bookTitle text] professor:[_professorName text] courseName:[_lectureName text] user:self.user bookStatus:_bookState price:[_price text] pictureUrl:temp];
-        
-            [self.tabBarController setSelectedIndex:1];
+//        
+//            [self.tabBarController setSelectedIndex:1];
         
         [self upload];
+        
         self.professorName.text=@"";
         self.price.text=@"";
         self.lectureName.text=@"";
         self.bookTitle.text=@"";
         self.bookImage = [UIImage imageNamed:@"default.png"];
+        [self.bookImage setAccessibilityIdentifier:@"default"];
         [_bookImageView setImage:_bookImage];
         _bookState = @"";
-
+        
+        self.highQ.imageView.image=[UIImage imageNamed:@"unchecked.png"];
+        [self.highQ setSelected:NO];
+        
+        self.middleQ.imageView.image=[UIImage imageNamed:@"unchecked.png"];
+        [self.middleQ setSelected:NO];
+        
+        self.lowQ.imageView.image=[UIImage imageNamed:@"unchecked.png"];
+        [self.middleQ setSelected:NO];
+        
         [weakSelf alertWithTitle:@"책 등록" message:@"등록을 완료하였습니다"];
         [self.tabBarController setSelectedIndex:0];
 //        [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
@@ -119,7 +134,27 @@
 }
 - (IBAction)cancelButtonClicked:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
+//    [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
+    self.professorName.text=@"";
+    self.price.text=@"";
+    self.lectureName.text=@"";
+    self.bookTitle.text=@"";
+    self.bookImage = [UIImage imageNamed:@"default.png"];
+    [self.bookImage setAccessibilityIdentifier:@"default"];
+    [_bookImageView setImage:_bookImage];
+    _bookState = @"";
+    
+    self.highQ.imageView.image=[UIImage imageNamed:@"unchecked.png"];
+    [self.highQ setSelected:NO];
+    
+    self.middleQ.imageView.image=[UIImage imageNamed:@"unchecked.png"];
+    [self.middleQ setSelected:NO];
+    
+    self.lowQ.imageView.image=[UIImage imageNamed:@"unchecked.png"];
+    [self.middleQ setSelected:NO];
+    
+    [self.tabBarController setSelectedIndex:0];
+    
 }
 - (void)connectForBookName:(NSString *)bookName professor:(NSString *)professor courseName:(NSString *)courseName user:(NSString *)user bookStatus:(NSString *)bookStatus price:(NSString *)price pictureUrl:(NSString*)pictureUrl
 {
@@ -154,7 +189,6 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [self.responseData appendData:data];
-    NSLog(@"%@",self.responseData);
 }
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
@@ -217,6 +251,8 @@
     _bookImage = nil;
     _bookImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
+    [self.bookImage setAccessibilityIdentifier:[NSString stringWithFormat:@"pic_%d.jpg",self.picNum]];//change name of image
+    
     [self finishedPicker];
     
     [_bookImageView setImage:_bookImage];
@@ -265,7 +301,7 @@
     
     NSString *path=[NSTemporaryDirectory() stringByAppendingPathComponent:temp];
 
-    NSData *imageData=UIImageJPEGRepresentation(img, 0.1);;
+    NSData *imageData=UIImageJPEGRepresentation(img, 0.8);;
     [imageData writeToFile:path atomically:YES];
     
     NSURL *url=[[NSURL alloc]initFileURLWithPath:path];
@@ -316,7 +352,7 @@
     float maxWidth = 400.0;
     float imgRatio = actualWidth/actualHeight;
     float maxRatio = maxWidth/maxHeight;
-    float compressionQuality = 0.1;//10 percent compression
+    float compressionQuality = 0.8;//80 percent compression
     
     if (actualHeight > maxHeight || actualWidth > maxWidth)
     {
@@ -347,7 +383,7 @@
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     NSData *imageData = UIImageJPEGRepresentation(img, compressionQuality);
     UIGraphicsEndImageContext();
-    
+//    return img;
     return [UIImage imageWithData:imageData];
     
 }

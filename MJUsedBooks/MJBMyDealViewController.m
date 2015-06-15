@@ -204,7 +204,7 @@
         
     }else{
         
-        profLabel.text=[NSString stringWithFormat:@"교수님: %@ ", prof];
+        profLabel.text=[NSString stringWithFormat:@"교수: %@ ", prof];
         priceLable.text=[NSString stringWithFormat:@"가격: %@ 원", price];
         courseLable.text=[NSString stringWithFormat:@"과목: %@", course];
         

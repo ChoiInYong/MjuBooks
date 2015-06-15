@@ -64,15 +64,16 @@
             [self connectForBuy:self.bookId email:self.email];
             [self.button setTitle:@"구매자 대기" forState:UIControlStateNormal];
             [self alert:@"구매요청을 완료되었습니다"];
-            [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
-            
+//            [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     } else if (intnum == 1){
         if (self.areYouBuyer==false) {
             [self connectForSell:self.bookId ];
             [self.button setTitle:@"거래 완료" forState:UIControlStateNormal];
             [self alert:@"거래가 완료되었습니다."];
-            [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
+//            [self dismissViewControllerAnimated:YES completion:^{NSLog(@"controller dismissed");}];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }
     
