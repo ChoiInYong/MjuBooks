@@ -15,10 +15,13 @@
 //#import <AWSCore/AWSService.h>
 //#import <AWSS3/AWSS3.h>
 
-@interface MJBSellBookViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface MJBSellBookViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate,UITextFieldDelegate>
 
 @property NSString* user;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *lowQ;
 @property (weak, nonatomic) IBOutlet UIButton *middleQ;
 @property (weak, nonatomic) IBOutlet UIButton *highQ;

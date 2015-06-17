@@ -18,6 +18,7 @@
                 <outlet property="middleQ" destination="TFz-28-GOo" id="zKS-FW-5dj"/>
                 <outlet property="price" destination="M97-ke-fhK" id="alu-Zd-6Av"/>
                 <outlet property="professorName" destination="QpO-we-Mt5" id="0xM-6C-Tmt"/>
+                <outlet property="registerButton" destination="Mr4-XA-yfs" id="yHt-3p-zXf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="RlW-Il-RAo"/>
             </connections>
         </placeholder>
